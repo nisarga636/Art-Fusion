@@ -1,0 +1,76 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model artists {
+  id                String               @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  date_of_birth     String
+  password          String               @unique
+  phone_no          String
+  age               Int
+  address           String
+  physical_details  String
+  expected_payment  Boolean
+  skill             String
+  pp_id             String               @unique @db.Uuid
+  id_proof          String
+  email             String               @unique
+  name              String
+  role_type         roles
+  prev_project      prev_projects        @relation(fields: [pp_id], references: [id])
+  ProductionProfile productionProfiles[]
+}
+
+enum roles {
+  ARTIST
+  PROD_OWNER
+}
+
+model prev_projects {
+  id              String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  project_name    String
+  production_name String
+  link            String
+  technician_role String
+  released_date   String
+  artist_id       artists?
+}
+
+model productionProfiles {
+  id                  String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  title               String
+  p_owner_id          String          @db.Uuid
+  address             String
+  no_of_shooting_days Int
+  created_at          DateTime        @default(dbgenerated("now()"))
+  updated_at          DateTime        @updatedAt
+  release_date        DateTime
+  payment_provided    Boolean
+  restrictions        String
+  poster              String
+  budget              Int
+  duration            Int
+  artist              artists         @relation(fields: [p_owner_id], references: [id])
+  gener_on_prod       gener_on_prod[]
+}
+
+model gener_on_prod {
+  id                String             @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  prod_id           String             @db.Uuid
+  genere            String
+  productionProfile productionProfiles @relation(fields: [prod_id], references: [id])
+  genere_category   genere_category    @relation(fields: [genere], references: [genere_type])
+}
+
+model genere_category {
+  genere_type   String          @id
+  gener_on_prod gener_on_prod[]
+}

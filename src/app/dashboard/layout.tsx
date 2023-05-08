@@ -5,16 +5,16 @@ interface props {
   children: React.ReactNode;
 }
 
-const YatriFont = Noto_Serif_Devanagari({ weight: "400", subsets: ["devanagari"] });
+const MyFont = Noto_Serif_Devanagari({ weight: "400", subsets: ["devanagari"] });
 
 export default function RootLayout({ children }: props) {
   return (
     <div className="h-screen w-screen overflow-hidden">
       <header
-        style={YatriFont.style}
+        style={MyFont.style}
         className="h-14 border-b border-gray-600 flex items-center px-5 text-xl font-mono font-bold"
       >
-        Dashboard
+        Art Fusion
       </header>
       <div className="w-full h-full flex">
         <nav className="h-full w-[180px] border-r border-gray-600 p-5">

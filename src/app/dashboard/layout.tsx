@@ -34,7 +34,22 @@ export default function RootLayout({ children }: props) {
                 Messages
               </li>
             </Link>
-          </ul>
+            <Link href={"/dashboard/payments"}>
+              <li className="text-md hover:font-medium hover:cursor-pointer">
+                Payments
+              </li>
+            </Link>
+              <Link href={"/dashboard/enthusiasts"}>
+              <li className="text-md hover:font-medium hover:cursor-pointer">
+              Enthusiasts
+              </li>
+            </Link>
+            <Link href={"/dashboard/createpost"}>
+              <li className="text-md hover:font-medium hover:cursor-pointer">
+                Create Post
+              </li>
+            </Link>
+          </ul>       
         </nav>
         <main className="w-full h-full bg-gray-950 flex items-center justify-center overflow-y-scroll">
           {children}

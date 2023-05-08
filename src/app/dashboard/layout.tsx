@@ -24,32 +24,32 @@ export default function RootLayout({ children }: props) {
                 Home
               </li>
             </Link>
-            <Link href={"/dashboard/Gallery"}>
+            <Link href={"/dashboard/gallery"}>
               <li className="text-md hover:font-medium hover:cursor-pointer">
                 Gallery
               </li>
             </Link>
-            <Link href={"/dashboard/Messages"}>
+            <Link href={"/dashboard/messages"}>
               <li className="text-md hover:font-medium hover:cursor-pointer">
                 Messages
               </li>
             </Link>
-            <Link href={"/dashboard/Payments"}>
+            <Link href={"/dashboard/payments"}>
               <li className="text-md hover:font-medium hover:cursor-pointer">
                 Payments
               </li>
             </Link>
-            <Link href={"/dashboard/My Projects"}>
+            <Link href={"/dashboard/myprojects"}>
               <li className="text-md hover:font-medium hover:cursor-pointer">
                 My Projects
               </li>
             </Link>
-            <Link href={"/dashboard/Search Job"}>
+            <Link href={"/dashboard/searchjob"}>
               <li className="text-md hover:font-medium hover:cursor-pointer">
                 Search Job
               </li>
             </Link>
-            <Link href={"/dashboard/Settings"}>
+            <Link href={"/dashboard/settings"}>
               <li className="text-md hover:font-medium hover:cursor-pointer">
                 Settings
               </li>

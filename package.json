@@ -17,6 +17,7 @@
     "@types/react": "18.2.2",
     "@types/react-dom": "18.2.3",
     "autoprefixer": "10.4.14",
+    "class-variance-authority": "^0.6.0",
     "eslint": "8.39.0",
     "eslint-config-next": "13.3.4",
     "next": "^13.4.1",
@@ -24,6 +25,7 @@
     "prisma": "^4.13.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.8.0",
     "react-redux": "^8.0.5",
     "typescript": "5.0.4"
   },

@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@faker-js/faker": "^7.6.0",
+    "@headlessui/react": "^1.7.14",
     "@prisma/client": "^4.13.0",
     "@reduxjs/toolkit": "^1.9.5",
     "@types/react": "18.2.2",
@@ -40,6 +41,7 @@
     "@storybook/testing-library": "^0.0.14-next.2",
     "@types/node": "18.16.3",
     "eslint-plugin-storybook": "^0.6.12",
+    "nuxt-headlessui": "^1.1.4",
     "storybook": "^7.0.8",
     "tailwindcss": "^3.3.2"
   }

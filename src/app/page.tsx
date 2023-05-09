@@ -6,10 +6,10 @@ export default function Page() {
     <div>
       <h1 className="text-3xl font-bold">Hello, Next.js!</h1>
       <Button
-        LeftIcon={<AiOutlineUser className="text-xl" />}
+        leftIcon={<AiOutlineUser className="text-xl" />}
         intent={"primary"}
       >
-        Signin
+        Signing
       </Button>
     </div>
   );

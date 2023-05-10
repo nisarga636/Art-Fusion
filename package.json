@@ -1,26 +1,48 @@
 {
-  "name": "my-prisma-project",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "prisma": {
-    "seed": "ts-node prisma/seed.ts"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@faker-js/faker": "^7.6.0",
-    "@types/node": "^18.16.3",
-    "faker": "^6.6.6",
-    "prisma": "^4.13.0",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.0.4"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@prisma/client": "^4.13.0"
+    "@faker-js/faker": "^7.6.0",
+    "@headlessui/react": "^1.7.14",
+    "@prisma/client": "^4.13.0",
+    "@reduxjs/toolkit": "^1.9.5",
+    "@types/react": "18.2.2",
+    "@types/react-dom": "18.2.3",
+    "autoprefixer": "10.4.14",
+    "class-variance-authority": "^0.6.0",
+    "eslint": "8.39.0",
+    "eslint-config-next": "13.3.4",
+    "next": "^13.4.1",
+    "postcss": "8.4.23",
+    "prisma": "^4.13.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.8.0",
+    "react-redux": "^8.0.5",
+    "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^7.0.8",
+    "@storybook/addon-interactions": "^7.0.8",
+    "@storybook/addon-links": "^7.0.8",
+    "@storybook/addon-mdx-gfm": "^7.0.8",
+    "@storybook/blocks": "^7.0.8",
+    "@storybook/nextjs": "^7.0.8",
+    "@storybook/react": "^7.0.8",
+    "@storybook/testing-library": "^0.0.14-next.2",
+    "@types/node": "18.16.3",
+    "eslint-plugin-storybook": "^0.6.12",
+    "nuxt-headlessui": "^1.1.4",
+    "storybook": "^7.0.8",
+    "tailwindcss": "^3.3.2"
   }
 }

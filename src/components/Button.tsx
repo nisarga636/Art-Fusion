@@ -17,6 +17,7 @@ export const buttonStyles = cva(
       size: {
         lg: "px-8 py-2 text-lg",
         md: "px-5 py-2 text-md",
+        sm: "px-3 py-2 text-sm",
       },
     },
     compoundVariants: [
@@ -35,7 +36,7 @@ export const buttonStyles = cva(
     ],
     defaultVariants: {
       intent: "primary",
-      size: "lg",
+      size: "sm",
     },
   }
 );

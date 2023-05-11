@@ -1,24 +1,21 @@
-import { useState } from 'react'
-import { Switch } from '@headlessui/react'
+import React from 'react';
+import * as Switch from '@radix-ui/react-switch';
 
-export default function Toggle() {
-  const [enabled, setEnabled] = useState(false)
-
-  return (
-    <div className="py-16">
-      <Switch
-        checked={enabled}
-        onChange={setEnabled}
-        className={`${enabled ? 'bg-blue-700' : 'bg-blue-900'}
-          relative inline-flex h-[38px] w-[74px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
+const SwitchDemo = () => (
+  <form>
+    <div className="flex items-center" style={{ display: 'flex', alignItems: 'center' }}>
+      <label className="text-white text-[15px] leading-none pr-[15px]" htmlFor="airplane-mode">
+        Airplane mode
+      </label>
+      <Switch.Root
+        className="w-[42px] h-[25px] bg-gray-500 rounded-full relative focus:shadow-[0_0_0_2px] focus:shadow-black data-[state=checked]:bg-blue-700 outline-none cursor-default"
+        id="airplane-mode"
+        
       >
-        <span className="sr-only">Use setting</span>
-        <span
-          aria-hidden="true"
-          className={`${enabled ? 'translate-x-9' : 'translate-x-0'}
-            pointer-events-none inline-block h-[34px] w-[34px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
-        />
-      </Switch>
+        <Switch.Thumb className="block w-[21px] h-[21px] bg-white rounded-full  transition-transform duration-100 translate-x-0.5 will-change-transform data-[state=checked]:translate-x-[19px]" />
+      </Switch.Root>
     </div>
-  )
-}
+  </form>
+);
+
+export default SwitchDemo;

@@ -3,7 +3,7 @@ import { VariantProps, cva } from "class-variance-authority";
 export type ButtonProps = VariantProps<typeof buttonStyles>;
 
 export const buttonStyles = cva(
-  "flex items-center justify-center shadow-lg rounded-lg font-semibold",
+  "flex items-center justify-center shadow-lg rounded-lg font-semibold text-center",
   {
     variants: {
       intent: {

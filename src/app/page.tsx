@@ -1,3 +1,4 @@
+import AvatarDemo from "@/components/Avatar";
 import Button from "@/components/Button";
 import { AiOutlineUser } from "react-icons/ai";
 
@@ -11,7 +12,7 @@ export default function Page() {
       >
         Signing
       </Button>
-      
+      <AvatarDemo/>
     </div>
   );
 }

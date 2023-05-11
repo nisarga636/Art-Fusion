@@ -1,9 +1,9 @@
-import { useState } from 'react'
-import { Dialog } from '@headlessui/react'
-import Button from './Button'
+import { useState } from "react";
+import { Dialog } from "@headlessui/react";
+import Button from "./Button";
 
 export default function Alert() {
-  let [isOpen, setIsOpen] = useState(false)
+  let [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
@@ -34,15 +34,11 @@ export default function Alert() {
               >
                 Deactivate
               </Button>
-              <Button 
-                onClick={() => setIsOpen(false)}
-              >
-                Cancel
-              </Button>
+              <Button onClick={() => setIsOpen(false)}>Cancel</Button>
             </div>
           </Dialog.Panel>
         </div>
       </Dialog>
     </>
-  )
+  );
 }

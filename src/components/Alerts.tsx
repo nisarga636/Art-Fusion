@@ -1,4 +1,5 @@
 import { VariantProps, cva } from "class-variance-authority";
+import React from "react";
 import {
   AiOutlineCheckCircle,
   AiOutlineCloseCircle,
@@ -8,19 +9,20 @@ import {
 export type AlertProps = VariantProps<typeof AlertBoxStyle>;
 
 export const AlertBoxStyle = cva(
-  "flex items-center justify-center bg-white shadow-lg rounded-3xl py-2 w-fit px-3",
+  "flex items-center justify-center bg-white shadow-lg rounded-lg py-2 w-fit px-3",
   {
     variants: {
       varient: {
-        success: "bg-green-500 border-2 border-green-600 text-white" ,
-        error: "bg-red-500 border-2 border-red-600 text-white",
+        success: "bg-green-600 border-2 border-green-600 text-white",
+        error: "bg-red-500 border-2 border-red-500 text-white",
+        warning: "bg-yellow-600 border-2 border-yellow-600 text-white",
       },
     },
     defaultVariants: {
       varient: "success",
     },
   }
-);
+); 
 
 interface ButtonExtendedProps extends AlertProps {
   children: string;
@@ -34,10 +36,11 @@ export default function Alert({
   return (
     <div className={AlertBoxStyle({ varient })} {...props}>
       <div className="px-2 text-lg">
-        {varient == "success" && <AiOutlineCheckCircle /> }
+        {varient == "success" && <AiOutlineCheckCircle />}
+        {varient == "warning" && <AiOutlineExclamationCircle />}
         {varient == "error" && <AiOutlineCloseCircle />}
       </div>
       {children}
     </div>
   );
-}
+ }

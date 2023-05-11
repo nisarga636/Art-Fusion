@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Button from "../components/Button";
-import { AiOutlineFilter, AiOutlineLogin, AiOutlineShareAlt } from "react-icons/ai";
 
 const meta: Meta<typeof Button> = {
   title: "ui/Button",

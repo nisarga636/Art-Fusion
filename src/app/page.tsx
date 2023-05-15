@@ -1,4 +1,4 @@
-import Button from "../components/Button";
+import Button from "@/components/Button";
 import { AiOutlineUser } from "react-icons/ai";
 
 export default function Page() {
@@ -6,11 +6,12 @@ export default function Page() {
     <div>
       <h1 className="text-3xl font-bold">Hello, Next.js!</h1>
       <Button
-        LeftIcon={<AiOutlineUser className="text-xl" />}
+        leftIcon={<AiOutlineUser className="text-xl" />}
         intent={"primary"}
       >
-        Signin
+        Signing
       </Button>
+      <AvatarDemo/>
     </div>
   );
 }

@@ -16,5 +16,5 @@ export const theme = {
       secondary: '#E0E0E0',
     },
   },
+  plugins: [],
 };
-export const plugins = [];

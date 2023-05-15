@@ -2,45 +2,25 @@ import { VariantProps, cva } from "class-variance-authority";
 
 export type ButtonProps = VariantProps<typeof buttonStyles>;
 
-export const buttonStyles = cva(
-  "flex items-center justify-center shadow-lg rounded-full font-semibold",
-  {
-    variants: {
-      intent: {
-        primary: "bg-brand hover:bg-gray-700",
-        secondary:"bg-secondary hover:bg-yellow-700 text-brand"
-      },
-      variant:{
-        solid:"text-white",
-        outline:""
-      },
-      size:{
-        lg:"px-8 py-2 text-lg",
-        md:"px-5 py-2 text-md"
-      },
+export const buttonStyles = cva("px-5 py-2 flex items-center justify-center text-lg shadow-sm rounded-xl", {
+  variants: {
+    intent: {
+      primary:
+        "text-teal-400 border-2 border-teal-400 bg-gradient-to-t transition-all duration-75 font-medium hover:from-[#00E18F] hover:to-[#3EB489] hover:text-white",
+      disabled: "bg-gray-300 text-gray-900 hover:cursor-not-allowed",
     },
-    compoundVariants: [
-      {
-        intent:"primary",
-        variant:"outline",
-        className:"bg-transparent text-brand border-brand border-2 hover:bg-gray-300"
-      },
-      {
-        intent:"secondary",
-        variant:"outline",
-        className:"bg-transparent text-secondary border-secondary border-2 hover:bg-yellow-100"
-      }
-    ],
-    defaultVariants: {
-      intent: "primary",
-      size:"lg"
+    fullwidth: {
+      true: "w-full",
     },
-  }
-);
+  },
+  defaultVariants: {
+    intent: "primary",
+  },
+});
 
 export interface ButtonExtendedProps extends ButtonProps {
   children: string;
-  leftIcon?:React.ReactNode
+  LeftIcon?: React.ReactNode;
 }
 
 export default function Button({
@@ -52,10 +32,12 @@ export default function Button({
   ...props
 }: ButtonExtendedProps) {
   return (
-    <button className={buttonStyles({ intent,size,variant })} {...props}>
-      <div className="pr-2">
-        {leftIcon}
-      </div>
+    <button className={buttonStyles({ intent, fullwidth })} {...props}>
+      {
+        LeftIcon && (
+          <div className="text-lg pr-3">{LeftIcon}</div>
+        )
+      }
       {children}
     </button>
   );

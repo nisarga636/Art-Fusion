@@ -1,3 +1,5 @@
+"use client"
+
 import AvatarDemo from "@/components/Avatar";
 import Button from "@/components/Button";
 import { AiOutlineUser } from "react-icons/ai";

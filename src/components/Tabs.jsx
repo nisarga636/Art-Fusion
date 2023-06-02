@@ -6,27 +6,29 @@ export default function MyTabs() {
 
   return (
     <Tab.Group selectedIndex={selectedIndex} onChange={setSelectedIndex}>
-      <Tab.List className="flex p-1 space-x-1 bg-blue-900/20 rounded-sm justify-center">
+      <Tab.List className="flex p-1 space-x-1 bg-white justify-center">
         <Tab
           className={({ selected }) =>
-            `${selected ? "bg-white text-black" : "text-gray-400"} 
-             px-5 py-2 font-medium text-sm rounded-md`
+            `${
+              selected ? "bg-white text-black text-lg" : "text-gray-400"
+            } px-5 py-2  font-medium rounded-md`
           }
         >
           Tab 1
         </Tab>
+
         <Tab
           className={({ selected }) =>
-            `${selected ? "bg-white text-black" : "text-gray-400"} 
-             px-5 py-2 font-medium text-sm rounded-md`
+            `${selected ? "bg-white text-black text-lg" : "text-gray-400"} 
+             px-5 py-2 font-medium  rounded-md`
           }
         >
           Tab 2
         </Tab>
         <Tab
           className={({ selected }) =>
-            `${selected ? "bg-white text-black" : "text-gray-400"} 
-             px-5 py-2 font-medium text-sm rounded-md`
+            `${selected ? "bg-white text-black text-lg" : "text-gray-400"} 
+             px-5 py-2 font-medium  rounded-md`
           }
         >
           Tab 3

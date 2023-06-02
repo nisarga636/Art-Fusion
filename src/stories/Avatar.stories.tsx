@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Avatar from "../components/Avatar";
+import AvatarDemo from "../components/Avatar";
 
 
-const meta: Meta<typeof Avatar> = {
-    title: "ui/Avatar",
-    component: Avatar,
+const meta: Meta<typeof AvatarDemo> = {
+    title: "ui/AvatarDemo",
+    component: AvatarDemo,
   };
 
   export default meta;
 
-  type Story = StoryObj<typeof Avatar>;
+  type Story = StoryObj<typeof AvatarDemo>;
 
 
   export const Avatarwithimage: Story = {

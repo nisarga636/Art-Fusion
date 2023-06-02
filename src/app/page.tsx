@@ -1,18 +1,21 @@
-import AvatarDemo from "@/components/Avatar";
-import Button from "@/components/Button";
-import { AiOutlineUser } from "react-icons/ai";
+"use client"
 
-export default function Page() {
+import React from "react";
+import RadioGroupDemo from "../components/Radio";
+
+const MyComponent: React.FC = () => {
+  const radioGroupData = [
+    { label: "skdfljkn", value: "default" },
+    { label: "Comfortable", value: "comfortable" },
+    { label: "Compact", value: "compact" },
+  ];
+
   return (
     <div>
-      <h1 className="text-3xl font-bold">Hello, Next.js!</h1>
-      <Button
-        leftIcon={<AiOutlineUser className="text-xl" />}
-        intent={"primary"}
-      >
-        Signing
-      </Button>
-      <AvatarDemo/>
+      <h1>My Component</h1>
+      <RadioGroupDemo data={radioGroupData} />
     </div>
   );
-}
+};
+
+export default MyComponent;

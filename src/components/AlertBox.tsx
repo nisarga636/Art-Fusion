@@ -7,7 +7,7 @@ export default function Alert() {
 
   return (
     <>
-      <Button onClick={() => setIsOpen(true)}>Open dialog</Button>
+      <Button intent="primary" size="lg"  onClick={() => setIsOpen(true)}>Open dialog</Button>
       <Dialog
         open={isOpen}
         onClose={() => setIsOpen(false)}
@@ -34,7 +34,7 @@ export default function Alert() {
               >
                 Deactivate
               </Button>
-              <Button onClick={() => setIsOpen(false)}>Cancel</Button>
+              <Button variant={"outline_secondary"} onClick={() => setIsOpen(false)}>Cancel</Button>
             </div>
           </Dialog.Panel>
         </div>

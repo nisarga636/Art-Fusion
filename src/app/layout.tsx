@@ -1,13 +1,16 @@
-import "../styles/globals.css"
+import "../styles/globals.css";
+import Providers from "./providers";
 
-interface props{
-    children:React.ReactNode
+interface props {
+  children: React.ReactNode;
 }
 
-export default function RootLayout({ children }:props) {
-    return (
-      <html lang="en">
-        <body>{children}</body>
-      </html>
-    );
-  }
+export default function RootLayout({ children }: props) {
+  return (
+    <html lang="en">
+      <body>
+        <Providers>{children}</Providers>
+      </body>
+    </html>
+  );
+}

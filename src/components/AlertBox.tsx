@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
-import Button from "./Button";
+import Button, { ButtonExtendedProps, buttonStyles } from "./Button";
 
 export default function Alert() {
   let [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      <Button onClick={() => setIsOpen(true)}>Open dialog</Button>
+      <ButtonExtended onClick={() => setIsOpen(true)}>Open dialog</ButtonExtended>
       <Dialog
         open={isOpen}
         onClose={() => setIsOpen(false)}
@@ -28,17 +28,32 @@ export default function Alert() {
             </p>
 
             <div className="mt-4 flex justify-end">
-              <Button
-                className="mr-4 text-sm font-medium text-red-600 hover:text-red-500"
+              <ButtonExtended
+                intent="secondary"
+                variant="outline"
+                className="mr-4"
                 onClick={() => setIsOpen(false)}
               >
                 Deactivate
-              </Button>
-              <Button onClick={() => setIsOpen(false)}>Cancel</Button>
+              </ButtonExtended>
+              <ButtonExtended onClick={() => setIsOpen(false)}>Cancel</ButtonExtended>
             </div>
           </Dialog.Panel>
         </div>
       </Dialog>
     </>
+  );
+}
+
+// Customized ButtonExtended component
+export function ButtonExtended(props: ButtonExtendedProps) {
+  return (
+    <Button
+      className={`${buttonStyles(props)} ${props.className}`}
+      {...props}
+    >
+      <div className="pr-2">{props.leftIcon}</div>
+      {props.children}
+    </Button>
   );
 }

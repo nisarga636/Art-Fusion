@@ -84,11 +84,11 @@ const main = async () => {
           budget: parseInt(faker.finance.amount(8)),
           duration: parseInt(faker.random.numeric(1)),
           no_of_shooting_days: parseInt(faker.random.numeric(1)),
-          p_owner_id: prod_owner.id,
+          artistsId: prod_owner.id,
           payment_provided: faker.datatype.boolean(),
           poster: faker.image.abstract(),
           release_date: faker.date.future(2),
-          restrictions: `No Smoking, No alchoal`,
+          restrictions: `No Smoking, No alcl`,
           title: faker.lorem.word(2),
         },
       });

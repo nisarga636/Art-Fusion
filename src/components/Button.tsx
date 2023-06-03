@@ -42,6 +42,7 @@ export const buttonStyles = cva(
 );
 
 export interface ButtonExtendedProps extends ButtonProps {
+  className: any;
   children: string;
   leftIcon?: React.ReactNode;
 }

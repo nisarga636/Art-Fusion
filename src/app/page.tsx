@@ -1,38 +1,34 @@
-"use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createAccountRequest } from "../../store/account.slice";
-import { useAppSelector } from "../../store";
-import { AiOutlineUser } from "react-icons/ai";
+import { fetchInitialLogin } from "../../store/login.slice";
 
-const Page = () => {
+
+const MainPage = () => {
   const dispatch = useDispatch();
-  const isLoading = useAppSelector((state) => state.createAccount.isLoading);
-  const successMessage = useAppSelector(
-    (state) => state.createAccount.successMessage
-  );
-  const error = useAppSelector((state) => state.createAccount.error);
 
-  const handleCreateAccount = () => {
-    // Dispatch the createAccountRequest action
-    dispatch(createAccountRequest());
-  };
+  useEffect(() => {
+    dispatch(fetchInitialLogin());
+  }, [dispatch]);
+
+  const isLoading = useSelector((state) => state.login.isLoading);
+  const error = useSelector((state) => state.login.error);
+  const data = useSelector((state) => state.login.data);
 
   return (
     <div>
-      <h1 className="text-3xl font-bold">
-        Hello,
-        <br /> Welcome to Art Fusion!
-      </h1>
-      <button
-        onClick={handleCreateAccount}
-        className="bg-transparent text-blue-700 border-blue-700 border-2 hover:bg-primary hover:text-white hover:border-0"
-      >
-        <AiOutlineUser className="text-xl" />{" "}
-        {isLoading ? "Creating Account..." : "Create Account"}
-      </button>
+      {isLoading && <div>Loading...</div>}
+
+      {error && <div>Error: {error}</div>}
+
+      {!isLoading && !error && (
+        <div>
+          {data.map((item) => (
+            <div key={item.id}>{item.name}</div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
 
-export default Page;
+export default MainPage;

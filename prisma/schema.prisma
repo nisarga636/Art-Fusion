@@ -7,7 +7,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model artists {
+model users {
   id                String               @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   date_of_birth     String
   password          String               @unique
@@ -38,7 +38,7 @@ model prev_projects {
   link            String
   technician_role String
   released_date   String
-  artist_id       artists?
+  artist_id       users?
 }
 
 model productionProfiles {
@@ -55,7 +55,7 @@ model productionProfiles {
   budget              Int
   duration            Int
   gener_on_prod       gener_on_prod[]
-  artists             artists?        @relation(fields: [artistsId], references: [id])
+  users             users?        @relation(fields: [artistsId], references: [id])
   artistsId           String?         @db.Uuid
 }
 

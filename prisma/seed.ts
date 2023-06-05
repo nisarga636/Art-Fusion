@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { faker } from "@faker-js/faker"
+import { faker } from "@faker-js/faker";
 
 const client = new PrismaClient();
 
@@ -7,7 +7,7 @@ const main = async () => {
   await client.gener_on_prod.deleteMany();
   await client.productionProfiles.deleteMany();
   await client.genere_category.deleteMany();
-  await client.artists.deleteMany();
+  await client.users.deleteMany();
   await client.prev_projects.deleteMany();
 
   for (let i = 0; i < 10; i++) {
@@ -20,7 +20,7 @@ const main = async () => {
       "Voice Artist",
     ];
     const randomIndex = Math.floor(Math.random() * roles.length);
-    await client.artists.create({
+    await client.users.create({
       data: {
         name: faker.name.fullName(),
         address: `${faker.address.streetAddress()}, ${faker.address.cityName()}, ${faker.address.zipCode()}`,
@@ -68,7 +68,7 @@ const main = async () => {
     ],
   });
 
-  const prod_owners = await client.artists.findMany({
+  const prod_owners = await client.users.findMany({
     where: {
       role_type: "PROD_OWNER",
     },

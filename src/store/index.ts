@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit"
-import { fetchInitialLogin } from "./login.slice";
+import { createAccountSlice } from "./account.slice"
 import { useSelector } from "react-redux";
 
 export const store = configureStore({

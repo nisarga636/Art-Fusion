@@ -32,7 +32,7 @@ enum roles {
 }
 
 model prev_projects {
-  id              String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  id              String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   project_name    String
   production_name String
   link            String
@@ -55,7 +55,7 @@ model productionProfiles {
   budget              Int
   duration            Int
   gener_on_prod       gener_on_prod[]
-  users             users?        @relation(fields: [artistsId], references: [id])
+  users               users?          @relation(fields: [artistsId], references: [id])
   artistsId           String?         @db.Uuid
 }
 

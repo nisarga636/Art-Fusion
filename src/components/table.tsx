@@ -39,14 +39,14 @@ const Table = () => {
         <tbody>
           {data.map((user) => (
             <tr key={user.id} className="border-b border-gray-300">
-                <td className="py-4 px-6 border-b border-gray-300">{user.id}</td>
+                <td className="py-4 px-6 border-b text-black border-gray-300">{user.id}</td>
               <td className="py-4 px-6 border-b border-gray-300">
                 <img className="h-10 w-10 rounded-full" src={user.avatar} alt="Avatar" />
               </td>
-              <td className="py-4 px-6 border-b border-gray-300">{user.skill}</td>
-              <td className="py-4 px-6 border-b border-gray-300">{user.name}</td>
-              <td className="py-4 px-6 border-b border-gray-300">{user.Project_name}</td>
-              <td className="py-4 px-6 border-b border-gray-300">{user.Date_added}</td>
+              <td className="py-4 px-6 border-b text-black border-gray-300">{user.skill}</td>
+              <td className="py-4 px-6 border-b text-black border-gray-300">{user.name}</td>
+              <td className="py-4 px-6 border-b text-black border-gray-300">{user.Project_name}</td>
+              <td className="py-4 px-6 border-b text-black border-gray-300">{user.Date_added}</td>
               <td><button className="text-blue-500 hover:text-blue-700 mr-2" onClick={() => handleEdit(user.id)}>
                   <HiOutlinePencil className="h-5 w-5" />
                 </button></td>

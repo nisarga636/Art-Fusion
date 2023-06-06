@@ -1,9 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit"
-import { createAccountSlice } from "./account.slice"
 import { useSelector } from "react-redux";
+import {DisplayProductionSlice} from "./createProduction.slice";
 
 export const store = configureStore({
     reducer: {
+        [DisplayProductionSlice.name]:DisplayProductionSlice.reducer,
     }
 });
 

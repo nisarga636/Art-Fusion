@@ -34,7 +34,7 @@ export interface Database {
   }
   public: {
     Tables: {
-      artists: {
+      users: {
         Row: {
           address: string
           age: number

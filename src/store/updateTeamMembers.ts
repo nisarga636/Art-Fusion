@@ -24,6 +24,7 @@ export const fetchTeamMembers = createAsyncThunk<
     }
   }
 );
+/*
 export const filternotes = createAsyncThunk<
   any,
   void,
@@ -46,7 +47,7 @@ export const filternotes = createAsyncThunk<
       return rejectWithValue({ msg: "Something went wrong !" });
     }
   }
-);
+);*/
 interface InitialStateProps {
     isLoading: boolean;
     error: null | string | undefined;
@@ -60,7 +61,7 @@ interface InitialStateProps {
     error: null,
     
   };
-export  const DisplayNotesSlice = createSlice({
+export  const DisplaySlice = createSlice({
     name: "displayTeamMembers",
     initialState,
     reducers: {},
@@ -78,7 +79,7 @@ export  const DisplayNotesSlice = createSlice({
         state.isLoading = false;
         state.error = payload?.msg;
       });
-      builder.addCase(filternotes.fulfilled, (state, { payload }) => {
+    /*  builder.addCase(filternotes.fulfilled, (state, { payload }) => {
         state.data = payload;
         state.isLoading = false;
         state.error = null;
@@ -90,6 +91,6 @@ export  const DisplayNotesSlice = createSlice({
       builder.addCase(filternotes.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.error = payload?.msg;
-      });
+      });*/
     }})
-    export default DisplayNotesSlice
+    export default DisplaySlice;

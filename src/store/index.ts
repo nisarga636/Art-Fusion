@@ -1,5 +1,5 @@
-import { configureStore } from "@reduxjs/toolkit"
-import { createAccountSlice } from "./account.slice"
+import { configureStore } from "@reduxjs/toolkit";
+import { fetchTeamMembers } from "../store/updateTeamMembers";
 import { useSelector } from "react-redux";
 
 export const store = configureStore({

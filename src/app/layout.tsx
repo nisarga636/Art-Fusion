@@ -1,14 +1,20 @@
-import "../styles/globals.css";
+import "./globals.css";
 import Providers from "./providers";
+import { Imprima } from "next/font/google";
 
-interface props {
+const impira = Imprima({
+  weight:"400",
+  subsets:["latin"]
+})
+
+export default function RootLayout({
+  children,
+}: {
   children: React.ReactNode;
-}
-
-export default function RootLayout({ children }: props) {
+}) {
   return (
     <html lang="en">
-      <body>
+      <body className="w-[100vw] h-[100vh]" style={impira.style}>
         <Providers>{children}</Providers>
       </body>
     </html>

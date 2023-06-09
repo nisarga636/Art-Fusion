@@ -56,7 +56,7 @@ export default function Button({
   ...props
 }: ButtonExtendedProps) {
   return (
-    <button className={buttonStyles({ intent, size, variant })} {...props}>
+    <button className="{buttonStyles({ intent, size, variant })} {...props}">
       <div className="pr-2">{leftIcon}</div>
       {children}
     </button>

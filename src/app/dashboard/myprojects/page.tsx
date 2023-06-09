@@ -22,8 +22,8 @@ export default function Page() {
     >
       Recent Projects
       </h1>
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6shkmFdVD6fr9cIGFNY9itZO4noc4ALuLtw&usqp=CAU" alt="141px" 
-      style={{
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6shkmFdVD6fr9cIGFNY9itZO4noc4ALuLtw&usqp=CAU" alt="141px" >
+        style={{
         display: flex,
         flex-direction: row,
         align-items: flex-start,
@@ -35,8 +35,8 @@ export default function Page() {
         left: 0px,
         top: 0px,
         background: url(.jpg), #D9D9D9
-      }}
-      />
+      }}</img>
+      
       </div>
     
   );

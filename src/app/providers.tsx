@@ -1,12 +1,17 @@
-"use client"
+"use client";
 import { Provider } from "react-redux";
 import "../styles/globals.css";
 import { store } from "../store";
+import { SessionProvider } from "next-auth/react";
 
 interface props {
   children: React.ReactNode;
 }
 
 export default function Providers({ children }: props) {
-  return <Provider store={store}>{children}</Provider>;
+  return (
+    <Provider store={store}>
+      <SessionProvider refetchInterval={5 * 60}>{children}</SessionProvider>
+    </Provider>
+  );
 }

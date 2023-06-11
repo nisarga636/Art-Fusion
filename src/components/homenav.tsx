@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default function Navbar() {
@@ -39,22 +40,21 @@ export default function Navbar() {
         </li>
       </ul>
       <div className="flex items-center text-sm w-14">
-        <a
-          href="#"
+        <Link
+          href="/sign-in"
           className=" text-gray hover:from-gray hover:to-black text-black hover:font-bold"
         >
           {" "}
           Sign in{" "}
-        </a>
+        </Link>
       </div>
       <div className=" flex justify-center mx-4 w-16 bg-blue-700 rounded-md text-white  hover:bg-white hover:border-[2px] hover:border-blue-700 hover:text-blue-700 hover:font-semibold">
-      <a
-          href="#"
+      <Link
+          href="/join"
           className=" my-1  rounded-md "
         >
-          {" "}
-          Join{" "}
-        </a>
+          Join
+        </Link>
       </div>
     </nav>
   );

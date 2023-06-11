@@ -1,49 +1,119 @@
-import React from 'react';
-import * as Form from '@radix-ui/react-form';
-import Button from "./Button";
+import React from "react";
 
-const Formbox = () => (
-  <Form.Root className="w-[260px]">
-    <Form.Field className="grid mb-[10px]" name="email">
-      <div className="flex items-baseline justify-between">
-        <Form.Label className="text-[15px] font-medium leading-[35px] text-white">Email</Form.Label>
-        <Form.Message className="text-[13px] text-white opacity-[0.8]" match="valueMissing">
-          Please enter your email
-        </Form.Message>
-        <Form.Message className="text-[13px] text-white opacity-[0.8]" match="typeMismatch">
-          Please provide a valid email
-        </Form.Message>
-      </div>
-      <Form.Control asChild>
-        <input
-          className="box-border w-full bg-blackA5 shadow-blackA9 inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA9"
-          type="email"
-          required
-        />
-      </Form.Control>
-    </Form.Field>
-    <Form.Field className="grid mb-[10px]" name="question">
-      <div className="flex items-baseline justify-between">
-        <Form.Label className="text-[15px] font-medium leading-[35px] text-white">
-          Question
-        </Form.Label>
-        <Form.Message className="text-[13px] text-white opacity-[0.8]" match="valueMissing">
-          Please enter a question
-        </Form.Message>
-      </div>
-      <Form.Control asChild>
-        <textarea
-          className="box-border w-full bg-blackA5 shadow-blackA9 inline-flex appearance-none items-center justify-center rounded-[4px] p-[10px] text-[15px] leading-none text-black shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA9 resize-none"
-          required
-        />
-      </Form.Control>
-    </Form.Field>
-    <Form.Submit asChild>
-      <Button >
-        Post question
-      </Button>
-    </Form.Submit>
-  </Form.Root>
-);
-
-export default Formbox;
+export default function Form() {
+  return (
+    <div>
+      <form>
+        <div className="justify-end p-10 grid gap-6 mb-6 ">
+          <div>
+            <label
+              for="full_name"
+              className="block mb-2 text-sm font-medium text-black"
+            >
+              Full Name
+            </label>
+            <input
+              type="text"
+              id="first_name"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="John"
+              required
+            />
+          </div>
+          <div>
+            <label
+              for="phone"
+              className="block mb-2 text-sm font-medium text-black"
+            >
+              Phone number
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="123-45-678"
+              pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+              required
+            />
+          </div>
+        <div >
+          <label
+            for="email"
+            className="block mb-2 text-sm font-medium text-black"
+          >
+            Email address
+          </label>
+          <input
+            type="email"
+            id="email"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="john.doe@company.com"
+            required
+          />
+        </div>
+        <div >
+          <label
+            for="password"
+            className="block mb-2 text-sm font-medium text-black"
+          >
+            Password
+          </label>
+          <input
+            type="password"
+            id="password"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="•••••••••"
+            required
+          />
+        </div>
+        <div >
+          <label
+            for="confirm_password"
+            className="block mb-2 text-sm font-medium text-black"
+          >
+            Confirm password
+          </label>
+          <input
+            type="password"
+            id="confirm_password"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="•••••••••"
+            required
+          />
+        </div>
+        <div className="flex items-start mb-6">
+          <div className="flex items-center h-5">
+            <input
+              id="remember"
+              type="checkbox"
+              value=""
+              className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+              required
+            />
+          </div>
+          <label
+            for="remember"
+            className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          >
+            I agree with the{" "}
+            <a
+              href="#"
+              className="text-blue-600 hover:underline dark:text-blue-500"
+            >
+              terms and conditions
+            </a>
+            .
+          </label>
+        </div>
+        <button
+          type="submit"
+          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+          Submit
+        </button>
+        </div>
+      </form>
+      
+    </div>
+  );
+}

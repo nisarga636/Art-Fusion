@@ -5,7 +5,7 @@ const AvatarWithImage = ({ imageSrc, altText }) => (
   <div className="flex gap-5 ml-4">
     <Avatar.Root className="bg-blackA3 inline-flex h-[30px] w-[30px] select-none items-center justify-center overflow-hidden rounded-full align-middle">
       <Avatar.Image
-        className="h-full w-full rounded-[inherit] object-cover"
+        className="h-full w-full rounded-[inherit] object-cover cursor-pointer"
         src={imageSrc}
         alt={altText}
       />

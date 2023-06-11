@@ -1,59 +1,206 @@
-import { Fragment, FC } from 'react'
-import { Disclosure } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/solid'
+import React, { useState } from "react";
+import {
+  MdOutlineSettings,
+  MdOutlineLogout,
+  MdOutlineAccountBalance,
+  MdOutlineHome,
+  MdOutlineMessage,
+  MdOutlineImage,
+  MdOutlineListAlt,
+  MdOutlineWorkOutline,
+  MdOutlineInfo,
+} from "react-icons/md";
 
-type NavigationItem = {
-  name: string
-  href: string
-  current: boolean
-}
+function SideNavbar() {
+  const [selectedItem, setSelectedItem] = useState("home");
 
-const navigation: NavigationItem[] = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
-]
+  const handleItemClick = (item: string) => {
+    setSelectedItem(item);
+  };
 
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
-}
-
-const Sidebar: FC = () => {
   return (
-    <Disclosure as="nav" className="bg-gray-800 h-screen w-64 fixed top-0 left-0 z-10">
-      {({ open }) => (
-        <>
-          <div className="px-2 py-4">
-            <h1 className="text-white text-xl font-bold">My App</h1>
+    <div>
+      <div className="p-6 w-56 h-screen bg-white z-20 sticky top-0  border-r-[1px] border-black  peer-focus:left-0 peer:transition ease-out delay-150 duration-200">
+        <div className="flex flex-col justify-start item-center">
+          <h1 className="text-3xl text-center cursor-pointer font-bold text-blue-900 border-b border-black pb-4 w-full">
+            Art Fusion
+          </h1>
+          <div className="my-4  pb-4">
+            <div
+              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
+                selectedItem === "home" ? "bg-blue-900 text-white" : ""
+              }`}
+              onClick={() => handleItemClick("home")}
+            >
+              <MdOutlineHome
+                className={`text-2xl text-gray-600 group-hover:text-white ${
+                  selectedItem === "home" ? "text-white" : ""
+                }`}
+              />
+              <h3
+                className={`text-base text-black font-semibold group-hover:text-white ${
+                  selectedItem === "home" ? "text-white" : ""
+                }`}
+              >
+                Home
+              </h3>
+            </div>
+            <div
+              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
+                selectedItem === "gallery" ? "bg-blue-900 text-white" : ""
+              }`}
+              onClick={() => handleItemClick("gallery")}
+            >
+              <MdOutlineImage
+                className={`text-2xl text-gray-600 group-hover:text-white  ${
+                  selectedItem === "gallery" ? "text-white" : ""
+                }`}
+              />
+              <h3
+                className={`text-base text-black font-semibold group-hover:text-white ${
+                  selectedItem === "gallery" ? "text-white" : ""
+                }`}
+              >
+                Gallery
+              </h3>
+            </div>
+
+            <div
+              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
+                selectedItem === "messages" ? "bg-blue-900 text-white" : ""
+              }`}
+              onClick={() => handleItemClick("messages")}
+            >
+              <MdOutlineMessage
+                className={`text-2xl text-gray-600 group-hover:text-white ${
+                  selectedItem === "messages" ? "text-white" : ""
+                }`}
+              />
+              <h3
+                className={`text-base text-black font-semibold group-hover:text-white ${
+                  selectedItem === "messages" ? "text-white" : ""
+                }`}
+              >
+                Messages
+              </h3>
+            </div>
+
+            <div
+              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
+                selectedItem === "payments" ? "bg-blue-900 text-white" : ""
+              }`}
+              onClick={() => handleItemClick("payments")}
+            >
+              <MdOutlineAccountBalance
+                className={`text-2xl text-gray-600 group-hover:text-white ${
+                  selectedItem === "payments" ? "text-white" : ""
+                }`}
+              />
+              <h3
+                className={`text-base text-black font-semibold group-hover:text-white ${
+                  selectedItem === "payments" ? "text-white" : ""
+                }`}
+              >
+                Payments
+              </h3>
+            </div>
+
+            <div
+              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
+                selectedItem === "projects" ? "bg-blue-900 text-white" : ""
+              }`}
+              onClick={() => handleItemClick("projects")}
+            >
+              <MdOutlineListAlt
+                className={`text-2xl text-gray-600 group-hover:text-white ${
+                  selectedItem === "projects" ? "text-white" : ""
+                }`}
+              />
+              <h3
+                className={`text-base text-black font-semibold group-hover:text-white ${
+                  selectedItem === "projects" ? "text-white" : ""
+                }`}
+              >
+                My Projects
+              </h3>
+            </div>
+
+            <div
+              className={`flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
+                selectedItem === "search-jobs" ? "bg-blue-900 text-white" : ""
+              }`}
+              onClick={() => handleItemClick("search-jobs")}
+            >
+              <MdOutlineWorkOutline
+                className={`text-2xl text-gray-600 group-hover:text-white ${
+                  selectedItem === "search-jobs" ? "text-white" : ""
+                }`}
+              />
+              <h3
+                className={`text-base text-black font-semibold group-hover:text-white ${
+                  selectedItem === "search-jobs" ? "text-white" : ""
+                }`}
+              >
+                Search Jobs
+              </h3>
+            </div>
+         
+          {/* setting  */}
+       
+            <div
+              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
+                selectedItem === "settings" ? "bg-blue-900 text-white" : ""
+              }`}
+              onClick={() => handleItemClick("settings")}
+            >
+              <MdOutlineSettings
+                className={`text-2xl text-gray-600 group-hover:text-white ${
+                  selectedItem === "settings" ? "text-white" : ""
+                }`}
+              />
+              <h3
+                className={`text-base text-black font-semibold group-hover:text-white ${
+                  selectedItem === "settings" ? "text-white" : ""
+                }`}
+              >
+                Settings
+              </h3>
+            </div>
           </div>
-          <div className="px-2 pb-4">
-            <Disclosure.Button className="flex justify-between w-full text-gray-400 hover:text-white">
-              <span className="text-sm font-medium">Navigation</span>
-              <ChevronDownIcon className={classNames(open ? '-rotate-180' : 'rotate-0', 'h-5 w-5')} />
-            </Disclosure.Button>
-            <Disclosure.Panel className="mt-2">
-              <nav className="space-y-1">
-                {navigation.map((item: NavigationItem) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className={classNames(
-                      item.current ? 'bg-gray-900 text-white' : 'text-gray-400 hover:text-white',
-                      'group flex items-center px-2 py-2 text-sm font-medium rounded-md'
-                    )}
-                    aria-current={item.current ? 'page' : undefined}
-                  >
-                    <span>{item.name}</span>
-                  </a>
-                ))}
-              </nav>
-            </Disclosure.Panel>
+
+          {/* logout and information */}
+          <div className=" mt-20 pb-4">
+            <div
+              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
+                selectedItem === "information" ? "bg-blue-900 text-white" : ""
+              }`}
+              onClick={() => handleItemClick("information")}
+            >
+              <MdOutlineInfo
+                className={`text-2xl text-gray-600 group-hover:text-white ${
+                  selectedItem === "information" ? "text-white" : ""
+                }`}
+              />
+              <h3
+                className={`text-base text-black font-semibold group-hover:text-white ${
+                  selectedItem === "information" ? "text-white" : ""
+                }`}
+              >
+                Information
+              </h3>
+            </div>
+
+            <div className="flex mb-2 justify-start items-center gap-4 pl-5 border border-gray-500  hover:bg-blue-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+              <MdOutlineLogout className="text-2xl text-gray-600 group-hover:text-white " />
+              <h3 className="text-base text-black group-hover:text-white font-semibold ">
+                Logout
+              </h3>
+            </div>
           </div>
-        </>
-      )}
-    </Disclosure>
-  )
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default Sidebar
+export default SideNavbar;

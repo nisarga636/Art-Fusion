@@ -1,30 +1,48 @@
-import React from "react";
-import { IoSearch, IoNotifications } from "react-icons/io5";
-import { StaticImageData } from "next/image";
+import React, { Children, useState } from "react";
+import {
+  IoSearch,
+  IoNotifications,
+  IoSearchOutline,
+  IoNotificationsOutline,
+} from "react-icons/io5";
 import AvatarWithImage from "./Avatar";
 
-interface LogoProps {
-  Logo: StaticImageData;
+interface NavbarProps {
+  imageSrc: string;
+  navName: string;
+  userName: string;
 }
 
-export default function Navbar({ Logo }: LogoProps) {
+export default function Navbar({ imageSrc, navName, userName }: NavbarProps) {
   return (
-    <nav className="bg-[white] text-[#424242] flex justify-between items-center py-3 px-5 h-12 drop-shadow-lg">
+    <nav className="sticky top-0 border-b-[1px] border-black right-0 bg-[white] text-[#424242] flex justify-between w-[1070px] items-center py-3 px-5 h-15  ">
       <ul className="flex items-center text-sm space-x-10 text-[#424242]">
         <li>
-          <a href="#">
-            Home
+          <a
+            href="/createProduction"
+            className="cursor-pointer ml-6 text-2xl font-semibold"
+          >
+            {navName}
           </a>
         </li>
       </ul>
-      <div className="flex items-center">
-        <IoSearch size={28} color="[#424242]" className="mr-4" />
-        <IoNotifications size={28} color="[#424242]" />
-        <AvatarWithImage
-          imageSrc="https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80"
-          altText="profile Image"
-          
+      <div className="flex items-center gap-2">
+        <IoSearchOutline
+          size={24}
+          color="#424242"
+          className="mr-4 cursor-pointer"
         />
+        <IoNotificationsOutline
+          size={24}
+          color="#424242"
+          className=" cursor-pointer"
+        />
+        <div className="flex">
+          <AvatarWithImage imageSrc={imageSrc} altText="profile Image" />
+          <div className="h-15">
+            <p className="ml-2 text-base font-base">{userName}</p>
+          </div>
+        </div>
       </div>
     </nav>
   );

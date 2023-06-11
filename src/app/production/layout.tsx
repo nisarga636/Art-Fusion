@@ -1,7 +1,7 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
-import SideNavbar from "@/components/ArtistSideBar";
+import SideNavbar from "@/components/ProductionSideBar";
 
 interface props {
   children: React.ReactNode;

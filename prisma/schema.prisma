@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -47,7 +44,6 @@ model prev_projects {
 model productionProfiles {
   id                  String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   title               String
-  p_owner_id          String          @db.Uuid
   address             String
   no_of_shooting_days Int
   created_at          DateTime        @default(dbgenerated("now()"))
@@ -58,8 +54,9 @@ model productionProfiles {
   poster              String
   budget              Int
   duration            Int
-  artist              artists         @relation(fields: [p_owner_id], references: [id])
   gener_on_prod       gener_on_prod[]
+  artists             artists?        @relation(fields: [artistsId], references: [id])
+  artistsId           String?         @db.Uuid
 }
 
 model gener_on_prod {

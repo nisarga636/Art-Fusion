@@ -3,7 +3,7 @@ import { VariantProps, cva } from "class-variance-authority";
 export type ButtonProps = VariantProps<typeof buttonStyles>;
 
 export const buttonStyles = cva(
-  "flex items-center justify-center shadow-lg rounded-lg font-semibold",
+  "flex items-center justify-center shadow-lg rounded-lg font-semibold text-center",
   {
     variants: {
       intent: {
@@ -17,6 +17,7 @@ export const buttonStyles = cva(
       size: {
         lg: "px-8 py-2 text-lg",
         md: "px-5 py-2 text-md",
+        sm: "px-3 py-2 text-sm",
       },
     },
     compoundVariants: [
@@ -35,12 +36,13 @@ export const buttonStyles = cva(
     ],
     defaultVariants: {
       intent: "primary",
-      size: "lg",
+      size: "sm",
     },
   }
 );
 
 export interface ButtonExtendedProps extends ButtonProps {
+  className: any;
   children: string;
   leftIcon?: React.ReactNode;
 }

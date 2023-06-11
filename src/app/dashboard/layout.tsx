@@ -56,7 +56,7 @@ export default function RootLayout({ children }: props) {
             </Link>
           </ul>
         </nav>
-        <main className="w-full h-full bg-gray-950 flex items-center justify-center overflow-y-scroll">
+        <main className="w-full h-full bg-gray-500 flex items-center justify-center overflow-y-scroll">
           {children}
         </main>
       </div>

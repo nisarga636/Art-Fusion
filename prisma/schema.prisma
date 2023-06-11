@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -10,8 +7,40 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model artists {
-  id                String               @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+model account {
+  id                String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId            String  @db.Uuid
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              user    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model session {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  sessionToken String   @unique
+  userId       String   @db.Uuid
+  expires      DateTime
+  user         user     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model user {
+  id        String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  email     String  @unique
+  name      String
+  image     String
+  isNewUser Boolean @default(false)
+
+  //TODO: optional fields
   date_of_birth     String
   password          String               @unique
   phone_no          String
@@ -22,11 +51,14 @@ model artists {
   skill             String
   pp_id             String               @unique @db.Uuid
   id_proof          String
-  email             String               @unique
-  name              String
   role_type         roles
   prev_project      prev_projects        @relation(fields: [pp_id], references: [id])
   ProductionProfile productionProfiles[]
+  account           account[]
+  session           session[]
+
+  @@index([id])
+  @@map("user")
 }
 
 enum roles {
@@ -35,19 +67,18 @@ enum roles {
 }
 
 model prev_projects {
-  id              String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  id              String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   project_name    String
   production_name String
   link            String
   technician_role String
   released_date   String
-  artist_id       artists?
+  artist_id       user?
 }
 
 model productionProfiles {
   id                  String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   title               String
-  p_owner_id          String          @db.Uuid
   address             String
   no_of_shooting_days Int
   created_at          DateTime        @default(dbgenerated("now()"))
@@ -58,8 +89,9 @@ model productionProfiles {
   poster              String
   budget              Int
   duration            Int
-  artist              artists         @relation(fields: [p_owner_id], references: [id])
   gener_on_prod       gener_on_prod[]
+  artists             user?           @relation(fields: [artistsId], references: [id])
+  artistsId           String?         @db.Uuid
 }
 
 model gener_on_prod {

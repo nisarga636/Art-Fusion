@@ -7,7 +7,7 @@ const main = async () => {
   await client.gener_on_prod.deleteMany();
   await client.productionProfiles.deleteMany();
   await client.genere_category.deleteMany();
-  await client.artists.deleteMany();
+  await client.user.deleteMany();
   await client.prev_projects.deleteMany();
 
   for (let i = 0; i < 10; i++) {
@@ -20,7 +20,7 @@ const main = async () => {
       "Voice Artist",
     ];
     const randomIndex = Math.floor(Math.random() * roles.length);
-    await client.artists.create({
+    await client.user.create({
       data: {
         name: faker.name.fullName(),
         address: `${faker.address.streetAddress()}, ${faker.address.cityName()}, ${faker.address.zipCode()}`,
@@ -68,7 +68,7 @@ const main = async () => {
     ],
   });
 
-  const prod_owners = await client.artists.findMany({
+  const prod_owners = await client.user.findMany({
     where: {
       role_type: "PROD_OWNER",
     },
@@ -84,11 +84,11 @@ const main = async () => {
           budget: parseInt(faker.finance.amount(8)),
           duration: parseInt(faker.random.numeric(1)),
           no_of_shooting_days: parseInt(faker.random.numeric(1)),
-          p_owner_id: prod_owner.id,
+          artistsId: prod_owner.id,
           payment_provided: faker.datatype.boolean(),
           poster: faker.image.abstract(),
           release_date: faker.date.future(2),
-          restrictions: `No Smoking, No alchoal`,
+          restrictions: `No Smoking, No alcl`,
           title: faker.lorem.word(2),
         },
       });

@@ -17,6 +17,12 @@ const meta: Meta<typeof MenuButton> = {
         <MenuItems>
           <MenuItem>Best Season</MenuItem>
           <MenuItem>Visitors Count</MenuItem>
+          <MenuItem>Best Season</MenuItem>
+          <MenuItem>Visitors Count</MenuItem>
+          <MenuItem>Best Season</MenuItem>
+          <MenuItem>Visitors Count</MenuItem>
+          <MenuItem>Best Season</MenuItem>
+          <MenuItem>Visitors Count</MenuItem>
         </MenuItems>
       </UiMenu>
     );

@@ -40,19 +40,18 @@ model user {
   image     String
   isNewUser Boolean @default(false)
 
-  //TODO: optional fields
-  date_of_birth     String
-  password          String               @unique
-  phone_no          String
-  age               Int
-  address           String
-  physical_details  String
-  expected_payment  Boolean
-  skill             String
-  pp_id             String               @unique @db.Uuid
-  id_proof          String
-  role_type         roles
-  prev_project      prev_projects        @relation(fields: [pp_id], references: [id])
+  date_of_birth    String?
+  password         String?  @unique
+  phone_no         String?
+  age              Int?
+  address          String?
+  physical_details String?
+  expected_payment Boolean?
+  skill            String?
+  id_proof         String?
+
+  role_type roles
+
   ProductionProfile productionProfiles[]
   account           account[]
   session           session[]
@@ -73,7 +72,6 @@ model prev_projects {
   link            String
   technician_role String
   released_date   String
-  artist_id       user?
 }
 
 model productionProfiles {

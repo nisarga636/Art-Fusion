@@ -34,7 +34,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "src/components/Avatar.jsx", "src/components/Sidebar.tsx", "src/components/drawer.tsx"  ],
+, "src/components/Avatar.jsx", "src/components/ArtistSideBar.tsx", "src/components/drawer.tsx"  ],
   "exclude": [
     "node_modules"
   ]

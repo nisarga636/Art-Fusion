@@ -3,7 +3,7 @@
 
 <h4>Todos</h4>
 
-- [ ] Google authentication
+- [x] Google authentication
 - [ ] Credential SignUp
 - [ ] Credential SignIn
 - [ ] Onboarding after signup

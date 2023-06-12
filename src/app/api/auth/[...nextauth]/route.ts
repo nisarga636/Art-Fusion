@@ -22,11 +22,15 @@ export const NextAuthOptions: AuthOptions = {
         password: {
           type: "text",
         },
+        for: {
+          type: "text",
+        },
       },
       type: "credentials",
       authorize: async (credentials, req) => {
         if (!credentials?.userId || !credentials.password) return null;
 
+        if (credentials?.for == "sign-in") {
           //if email or password is not present
           const user = (
             await prisma.user.findMany({
@@ -62,24 +66,24 @@ export const NextAuthOptions: AuthOptions = {
             name: user.name!,
             role: user.role_type!,
           };
-        // } else {
-        //   const hashedPassword = await hash(credentials.password, 12);
-        //   const user = await prisma.user.create({
-        //     data: {
-        //       email: credentials.userId,
-        //       name: credentials.name,
-        //       password: hashedPassword,
-        //     },
-        //   });
+        } else {
+          const hashedPassword = await hash(credentials.password, 12);
+          const user = await prisma.user.create({
+            data: {
+              email: credentials.userId,
+              name: "Test User",
+              password: hashedPassword,
+            },
+          });
 
-        //   return {
-        //     id: user.id,
-        //     email: user.email!,
-        //     image: user.image!,
-        //     name: user.name!,
-        //     role: user.role_type!,
-        //   };
-        // }
+          return {
+            id: user.id,
+            email: user.email!,
+            image: user.image!,
+            name: user.name!,
+            role: user.role_type!,
+          };
+        }
       },
     }),
   ],

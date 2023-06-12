@@ -10,11 +10,14 @@ export default function page() {
       <div className="bg-white flex justify-center items-center overflow-y-auto">
         <form className=" w-[60%] flex-col h-screen mt-10 bg-white ">
           <h1 className=" text-3xl mt-1  text-black font-bold text-center">
-            Art Fusion
+            Welocme To
           </h1>
-          <h2 className="text-xl  mt-7 text-black font-semibold text-center">
-            Sign Up
+          <h2 className="text-2xl  mt-3 text-black font-semibold text-center">
+            Art Fusion
           </h2>
+          <h3 className="text-lg  my-4 text-gray-700 font-semibold text-center">
+            There few step away to enter artists world
+          </h3>
           <InputBox
             label="Role"
             type="dropdown"
@@ -53,8 +56,8 @@ export default function page() {
             required={false}            
           />
 
-          <button className="w-full h-[38px] mt-3 rounded-lg bg-blue-700 hover:bg-transparent hover:border-2 hover:font-semibold hover:border-blue-700 hover:text-blue-700">
-            Sign Up
+          <button className="w-full h-[38px] my-5 rounded-lg bg-blue-700 hover:bg-transparent hover:border-2 hover:font-semibold hover:border-blue-700 hover:text-blue-700">
+            Continue
           </button>
         </form>
       </div>

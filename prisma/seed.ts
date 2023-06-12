@@ -1,5 +1,5 @@
-import { PrismaClient } from "@prisma/client";
-import { faker } from "@faker-js/faker"
+import { PrismaClient, roles } from "@prisma/client";
+import { faker } from "@faker-js/faker";
 
 const client = new PrismaClient();
 
@@ -23,6 +23,7 @@ const main = async () => {
     await client.user.create({
       data: {
         name: faker.name.fullName(),
+        image: faker.image.avatar(),
         address: `${faker.address.streetAddress()}, ${faker.address.cityName()}, ${faker.address.zipCode()}`,
         age: parseInt(faker.random.numeric(2)),
         date_of_birth: faker.date.past().getUTCDate().toString(),
@@ -32,18 +33,8 @@ const main = async () => {
         password: faker.internet.password(),
         phone_no: faker.phone.number("+91 ##### #####"),
         physical_details: "Eye Color - Brown",
-        // @ts-ignore
-        role_type: roles[randomIndex],
+        role_type: roles[randomIndex] as roles,
         skill: faker.random.words(10),
-        prev_project: {
-          create: {
-            link: faker.image.unsplash.technology(),
-            production_name: faker.company.name(),
-            project_name: faker.commerce.productName(),
-            released_date: faker.date.past().toString(),
-            technician_role: techroles[randomIndex],
-          },
-        },
       },
     });
   }

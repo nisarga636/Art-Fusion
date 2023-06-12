@@ -3,6 +3,7 @@
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
 import InputBox from "@/components/inputbox";
+import Link from "next/link";
 
 export default function SignUp() {
   return (
@@ -41,10 +42,9 @@ export default function SignUp() {
             </button>
           </center>
           <h3 className="text-sm  mt-28 dark:text-black font-semibold text-center">
-            {" "}
-            <a href="/auth/sign-In" className="underline">
+            <Link href="/sign-in" className="underline">
               already have an account?
-            </a>
+            </Link>
           </h3>
         </form>
       </div>

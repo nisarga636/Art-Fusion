@@ -7,7 +7,6 @@ export default function page() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 h-full w-full ">
       <div className="bg-[url('/bg-home.jpg')] bg-cover"></div>
-
       <div className="bg-white flex justify-center items-center overflow-y-auto">
         <form className=" w-[60%] flex-col h-screen mt-10 bg-white ">
           <h1 className=" text-3xl mt-1  text-black font-bold text-center">
@@ -22,7 +21,6 @@ export default function page() {
             placeholder="Select your role"
             required={true}
             options={roleoptions}
-            
           />
           <InputBox
             label="Full Name"

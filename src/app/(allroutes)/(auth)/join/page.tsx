@@ -3,8 +3,12 @@
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
 import InputBox from "@/components/inputbox";
+import Link from "next/link";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function SignUp() {
+  const router = useRouter();
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 h-full w-full ">
       <div className="bg-[url('/bg-home.jpg')] bg-cover"></div>
@@ -30,7 +34,22 @@ export default function SignUp() {
             required={true}
           />
 
-          <button className="w-full h-[38px] mt-3 rounded-lg bg-blue-700 hover:bg-transparent hover:border-2 hover:font-semibold hover:border-blue-700 hover:text-blue-700">
+          <button
+            onClick={() => {
+              signIn("credentials", {
+                userId: "azam@gmail.com",
+                password: "azam@1234",
+                redirect: false,
+                for: "sign-up",
+              }).then((value) => {
+                if (value?.error) console.log(value.error);
+                else {
+                  router.refresh();
+                }
+              });
+            }}
+            className="w-full h-[38px] mt-3 rounded-lg bg-blue-700 hover:bg-transparent hover:border-2 hover:font-semibold hover:border-blue-700 hover:text-blue-700"
+          >
             Sign Up
           </button>
           <h1 className="mt-3 text-black text-center">OR</h1>
@@ -41,10 +60,9 @@ export default function SignUp() {
             </button>
           </center>
           <h3 className="text-sm  mt-28 dark:text-black font-semibold text-center">
-            {" "}
-            <a href="/auth/sign-In" className="underline">
+            <Link href="/sign-in" className="underline">
               already have an account?
-            </a>
+            </Link>
           </h3>
         </form>
       </div>

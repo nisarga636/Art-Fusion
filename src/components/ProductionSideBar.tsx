@@ -24,13 +24,13 @@ function SideNavbar() {
     <div>
       <div className="p-6 w-56 h-screen bg-white z-20 sticky top-0  border-r-[1px] border-black  peer-focus:left-0 peer:transition ease-out delay-150 duration-200">
         <div className="flex flex-col justify-start item-center">
-          <h1 className="text-3xl text-center cursor-pointer font-bold text-blue-900 border-b border-black pb-4 w-full">
+          <h1 className="text-3xl text-center cursor-pointer font-bold text-blue-700 border-b border-black pb-4 w-full">
             Art Fusion
           </h1>
           <div className="my-4  pb-4">
             <div
-              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
-                selectedItem === "home" ? "bg-blue-900 text-white" : ""
+              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-700 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
+                selectedItem === "home" ? "bg-blue-700 text-white" : ""
               }`}
               onClick={() => handleItemClick("home")}
             >
@@ -48,8 +48,8 @@ function SideNavbar() {
               </h3>
             </div>
             <div
-              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
-                selectedItem === "My Projects" ? "bg-blue-900 text-white" : ""
+              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-700 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
+                selectedItem === "My Projects" ? "bg-blue-700 text-white" : ""
               }`}
               onClick={() => handleItemClick("My Projects")}
             >
@@ -68,8 +68,8 @@ function SideNavbar() {
             </div>
 
             <div
-              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
-                selectedItem === "messages" ? "bg-blue-900 text-white" : ""
+              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-700 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
+                selectedItem === "messages" ? "bg-blue-700 text-white" : ""
               }`}
               onClick={() => handleItemClick("messages")}
             >
@@ -88,8 +88,8 @@ function SideNavbar() {
             </div>
 
             <div
-              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
-                selectedItem === "payments" ? "bg-blue-900 text-white" : ""
+              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-700 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
+                selectedItem === "payments" ? "bg-blue-700 text-white" : ""
               }`}
               onClick={() => handleItemClick("payments")}
             >
@@ -108,8 +108,8 @@ function SideNavbar() {
             </div>
 
             <div
-              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
-                selectedItem === "Enthusiasts" ? "bg-blue-900 text-white" : ""
+              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-700 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
+                selectedItem === "Enthusiasts" ? "bg-blue-700 text-white" : ""
               }`}
               onClick={() => handleItemClick("Enthusiasts")}
             >
@@ -128,8 +128,8 @@ function SideNavbar() {
             </div>
 
             <div
-              className={`flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
-                selectedItem === "Create post" ? "bg-blue-900 text-white" : ""
+              className={`flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-700 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
+                selectedItem === "Create post" ? "bg-blue-700 text-white" : ""
               }`}
               onClick={() => handleItemClick("Create post")}
             >
@@ -150,8 +150,8 @@ function SideNavbar() {
             {/* setting  */}
 
             <div
-              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
-                selectedItem === "settings" ? "bg-blue-900 text-white" : ""
+              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-700 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
+                selectedItem === "settings" ? "bg-blue-700 text-white" : ""
               }`}
               onClick={() => handleItemClick("settings")}
             >
@@ -173,8 +173,8 @@ function SideNavbar() {
           {/* logout and information */}
           <div className=" mt-20 pb-4">
             <div
-              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
-                selectedItem === "information" ? "bg-blue-900 text-white" : ""
+              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-700 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
+                selectedItem === "information" ? "bg-blue-700 text-white" : ""
               }`}
               onClick={() => handleItemClick("information")}
             >
@@ -192,7 +192,7 @@ function SideNavbar() {
               </h3>
             </div>
 
-            <div className="flex mb-2 justify-start items-center gap-4 pl-5 border border-gray-500  hover:bg-blue-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+            <div className="flex mb-2 justify-start items-center gap-4 pl-5 border border-gray-500  hover:bg-blue-700 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
               <MdOutlineLogout className="text-2xl text-gray-600 group-hover:text-white " />
               <h3 className="text-base text-black group-hover:text-white font-semibold ">
                 Logout

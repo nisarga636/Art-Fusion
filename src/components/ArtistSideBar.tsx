@@ -27,8 +27,8 @@ function SideNavbar() {
           </h1>
           <div className="my-4  pb-4">
             <div
-              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
-                selectedItem === "home" ? "bg-blue-900 text-white" : ""
+              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-700 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
+                selectedItem === "home" ? "bg-blue-700 text-white" : ""
               }`}
               onClick={() => handleItemClick("home")}
             >
@@ -46,8 +46,8 @@ function SideNavbar() {
               </h3>
             </div>
             <div
-              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
-                selectedItem === "gallery" ? "bg-blue-900 text-white" : ""
+              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-700 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
+                selectedItem === "gallery" ? "bg-blue-700 text-white" : ""
               }`}
               onClick={() => handleItemClick("gallery")}
             >
@@ -66,8 +66,8 @@ function SideNavbar() {
             </div>
 
             <div
-              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
-                selectedItem === "messages" ? "bg-blue-900 text-white" : ""
+              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-700 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
+                selectedItem === "messages" ? "bg-blue-700 text-white" : ""
               }`}
               onClick={() => handleItemClick("messages")}
             >
@@ -86,8 +86,8 @@ function SideNavbar() {
             </div>
 
             <div
-              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
-                selectedItem === "payments" ? "bg-blue-900 text-white" : ""
+              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-700 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
+                selectedItem === "payments" ? "bg-blue-700 text-white" : ""
               }`}
               onClick={() => handleItemClick("payments")}
             >
@@ -106,8 +106,8 @@ function SideNavbar() {
             </div>
 
             <div
-              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
-                selectedItem === "projects" ? "bg-blue-900 text-white" : ""
+              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-700 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
+                selectedItem === "projects" ? "bg-blue-700 text-white" : ""
               }`}
               onClick={() => handleItemClick("projects")}
             >
@@ -126,8 +126,8 @@ function SideNavbar() {
             </div>
 
             <div
-              className={`flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
-                selectedItem === "search-jobs" ? "bg-blue-900 text-white" : ""
+              className={`flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-700 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
+                selectedItem === "search-jobs" ? "bg-blue-700 text-white" : ""
               }`}
               onClick={() => handleItemClick("search-jobs")}
             >
@@ -148,8 +148,8 @@ function SideNavbar() {
           {/* setting  */}
        
             <div
-              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
-                selectedItem === "settings" ? "bg-blue-900 text-white" : ""
+              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-700 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
+                selectedItem === "settings" ? "bg-blue-700 text-white" : ""
               }`}
               onClick={() => handleItemClick("settings")}
             >
@@ -171,8 +171,8 @@ function SideNavbar() {
           {/* logout and information */}
           <div className=" mt-20 pb-4">
             <div
-              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
-                selectedItem === "information" ? "bg-blue-900 text-white" : ""
+              className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-blue-700 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${
+                selectedItem === "information" ? "bg-blue-700 text-white" : ""
               }`}
               onClick={() => handleItemClick("information")}
             >
@@ -190,7 +190,7 @@ function SideNavbar() {
               </h3>
             </div>
 
-            <div className="flex mb-2 justify-start items-center gap-4 pl-5 border border-gray-500  hover:bg-blue-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+            <div className="flex mb-2 justify-start items-center gap-4 pl-5 border border-gray-500  hover:bg-blue-700 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
               <MdOutlineLogout className="text-2xl text-gray-600 group-hover:text-white " />
               <h3 className="text-base text-black group-hover:text-white font-semibold ">
                 Logout

@@ -42,7 +42,7 @@ export default function SignUp() {
           </center>
           <h3 className="text-sm  mt-28 dark:text-black font-semibold text-center">
             {" "}
-            <a href="/auth/sign-In" className="underline">
+            <a href="/sign-In" className="underline">
               already have an account?
             </a>
           </h3>

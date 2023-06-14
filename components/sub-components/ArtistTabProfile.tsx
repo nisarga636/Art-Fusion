@@ -31,28 +31,28 @@ export default function ArtistTabProfile() {
             height: "auto",
           }}
         >
-          <div className="h-[260px] relative max-w-full rounded-lg overflow-hidden">
+          <div className="h-[260px] relative max-w-full overflow-hidden">
             <Image
               src={faker.image.people(290, 180, true)}
               alt={"gallery"}
               fill
             />
           </div>
-          <div className="h-[260px] relative max-w-full rounded-lg overflow-hidden">
+          <div className="h-[260px] relative max-w-full overflow-hidden">
             <Image
               src={faker.image.people(290, 180, true)}
               alt={"gallery"}
               fill
             />
           </div>
-          <div className="h-[260px] relative max-w-full rounded-lg overflow-hidden">
+          <div className="h-[260px] relative max-w-full overflow-hidden">
             <Image
               src={faker.image.people(290, 180, true)}
               alt={"gallery"}
               fill
             />
           </div>
-          <div className="h-[260px] relative max-w-full rounded-lg overflow-hidden">
+          <div className="h-[260px] relative max-w-full overflow-hidden">
             <Image
               src={faker.image.people(290, 180, true)}
               alt={"gallery"}

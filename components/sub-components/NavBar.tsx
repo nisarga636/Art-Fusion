@@ -23,10 +23,10 @@ export default function NavBar({
             ? "/artist"
             : "/"
         }
-        style={italiana.style}
-        className="text-xl font-bold text-primary"
       >
-        Art Fusion
+        <h1 style={italiana.style} className="text-xl font-bold text-primary">
+          Art Fusion
+        </h1>
       </Link>
       <div className="gap-8 flex items-center">
         {isFor == "PRODUCTION" ? (

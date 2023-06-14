@@ -19,7 +19,11 @@ const InputBox: React.FC<InputBoxProps> = ({
 }) => {
   if (type === "dropdown" && options) {
     return (
+<<<<<<< HEAD
       <div className={`text-sm w-full  flex flex-col text-black py-4`}>
+=======
+      <div className={`text-sm w-full flex flex-col text-black py-4`}>
+>>>>>>> 5ec78c1a48ee0ad3064372219334a6f3500574c9
         <label>{label}</label>
         <select
           className="p-2.5 rounded-lg bg-gray-300 mt-2"

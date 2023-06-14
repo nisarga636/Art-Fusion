@@ -34,35 +34,33 @@ model session {
 }
 
 model user {
-  id        String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  email     String  @unique
-  name      String
-  image     String
-  isNewUser Boolean @default(false)
-
-  date_of_birth    String?
-  password         String?  @unique
-  phone_no         String?
-  age              Int?
-  address          String?
-  physical_details String?
-  expected_payment Boolean?
-  skill            String?
-  id_proof         String?
-
-  role_type roles
-
-  ProductionProfile productionProfiles[]
-  account           account[]
-  session           session[]
+  id                 String               @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  email              String?              @unique
+  emailVerified      DateTime?     
+  image              String?
+  name               String
+  isNewUser          Boolean              @default(true)
+  date_of_birth      String?
+  password           String?
+  phone_no           String?
+  age                Int?
+  address            String?
+  physical_details   String?
+  expected_payment   Boolean?
+  skill              String?
+  id_proof           String?
+  role_type          roles?               @default(UNRECONGNIZED)
+  account            account[]
+  session            session[]
+  productionProfiles productionProfiles[]
 
   @@index([id])
-  @@map("user")
 }
 
 enum roles {
   ARTIST
   PROD_OWNER
+  UNRECONGNIZED
 }
 
 model prev_projects {

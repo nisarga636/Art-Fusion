@@ -1,3 +1,4 @@
+import { signOut } from "next-auth/react";
 import React, { useState } from "react";
 import {
   MdOutlineSettings,
@@ -190,8 +191,13 @@ function SideNavbar() {
               </h3>
             </div>
 
+<<<<<<< HEAD
             <div className="flex mb-2 justify-start items-center gap-4 pl-5 border border-gray-500  hover:bg-blue-700 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
               <MdOutlineLogout className="text-2xl text-gray-600 group-hover:text-white " />
+=======
+            <div className="flex mb-2 justify-start items-center gap-4 pl-5 border border-gray-500  hover:bg-blue-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+              <MdOutlineLogout onClick={()=>signOut()} className="text-2xl text-gray-600 group-hover:text-white " />
+>>>>>>> 5ec78c1a48ee0ad3064372219334a6f3500574c9
               <h3 className="text-base text-black group-hover:text-white font-semibold ">
                 Logout
               </h3>

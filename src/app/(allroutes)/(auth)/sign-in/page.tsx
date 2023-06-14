@@ -1,9 +1,11 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Field, Formik } from "formik";
 import * as Yup from "yup";
 import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const initialValues = {
   userId: "",
@@ -17,6 +19,8 @@ const schema = Yup.object().shape({
 
 export default function Login() {
   const session = useSession();
+  const [error, setError] = useState("");
+  const router = useRouter();
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 h-screen w-full">
@@ -30,8 +34,15 @@ export default function Login() {
 
       <div className="bg-white flex flex-col justify-center">
         <div className=" w-full h-screen bg-white p-8 px-8">
+          <div className="px-28 flex flex-col">
+            {error && (
+              <div className="px-3 text-center animate-fade-in py-2 bg-red-300 text-red-700 text-md rounded-md">
+                <span>Credentials are invalid !</span>
+              </div>
+            )}
+          </div>
           <h1 className=" text-3xl mt-7  dark:text-black font-bold text-center">
-        <pre>{JSON.stringify(session)}</pre>
+            {/* <pre>{JSON.stringify(session)}</pre> */}
             Art Fusion
           </h1>
           <h2 className="text-xl  mt-7 dark:text-black font-semibold text-center">
@@ -40,9 +51,21 @@ export default function Login() {
           <Formik
             validationSchema={schema}
             initialValues={initialValues}
-            onSubmit={() => {}}
+            onSubmit={(values) => {
+              signIn("credentials", {
+                userId: values.userId,
+                password: values.password,
+                redirect: false,
+                for:"sign-up"
+              }).then((value) => {
+                if (value?.error) setError(value.error);
+                else {
+                  router.refresh();
+                }
+              });
+            }}
           >
-            {({ values, touched, errors, ...props }) => {
+            {({ values, touched, errors, handleSubmit, ...props }) => {
               return (
                 <>
                   <div className="text-sm p-28 flex flex-col text-black py-6">
@@ -77,7 +100,10 @@ export default function Login() {
                     <p>Forgot Password</p>
                   </div>
                   <div className="px-28 flex py-2 ">
-                    <button className="w-full py-2 bg-blue-700 shadow-lg shadow-blue-700 hover:shadow-gray-500 hover:border-2 border-gray-700   hover:bg-gray-50  hover:text-blue-700 text-white font-semibold rounded-lg">
+                    <button
+                      onClick={() => handleSubmit()}
+                      className="w-full py-2 bg-blue-700 shadow-lg shadow-blue-700 hover:shadow-gray-500 hover:border-2 border-gray-700   hover:bg-gray-50  hover:text-blue-700 text-white font-semibold rounded-lg"
+                    >
                       Log in
                     </button>
                   </div>
@@ -95,6 +121,11 @@ export default function Login() {
               <span className="flex items-center">Sign in with google</span>
             </button>
           </div>
+          <h3 className="text-sm  mt-10 dark:text-black font-semibold text-center">
+            <Link href="/join" className="underline">
+              don't have an account?
+            </Link>
+          </h3>
         </div>
       </div>
     </div>

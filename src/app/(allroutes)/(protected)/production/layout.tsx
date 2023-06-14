@@ -1,8 +1,5 @@
 "use client";
 
-import Navbar from "@/components/Navbar";
-import SideNavbar from "@/components/ProductionSideBar";
-
 interface props {
   children: React.ReactNode;
 }
@@ -10,6 +7,7 @@ interface props {
 export default function RootLayout({ children }: props) {
   return (
     <div className="flex w-full h-full ">
+<<<<<<< HEAD
       <SideNavbar />
       <div className="flex-col w-full h-full bg-white flex  ">
         <Navbar
@@ -19,6 +17,9 @@ export default function RootLayout({ children }: props) {
         />
         <main className="h-full w-full overflow-y-scroll">{children}</main>
       </div>
+=======
+      <main className="h-full w-full overflow-y-scroll">{children}</main>
+>>>>>>> e43f23f03181d2d25465bd6abe2ac5836bdd0535
     </div>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+<<<<<<< HEAD
 import InputBox from "@/components/inputbox";
 import React, { useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -7,6 +8,10 @@ import { BiPaperPlane } from "react-icons/bi";
 import { Bs0SquareFill, BsTrash } from "react-icons/bs";
 import { FiPlusSquare } from "react-icons/fi";
 import { RxDragHandleDots2 } from "react-icons/rx";
+=======
+import InputBox from "@/components/util/inputbox";
+import React from "react";
+>>>>>>> e43f23f03181d2d25465bd6abe2ac5836bdd0535
 
 export default function page() {
   const typeoptions = ["Movie", "Short Film", "Ads"];

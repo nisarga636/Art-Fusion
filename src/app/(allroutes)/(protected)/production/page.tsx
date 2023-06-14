@@ -1,8 +1,16 @@
 "use client";
-import { useAppSelector } from "@/store";
+
+import FeedCard from "@/components/sub-components/FeedCard";
 
 export default function Page() {
-  const Tests = useAppSelector((state) => state.DisplayProduction.data) as [];
-
-  return <div className="text-black">production/page</div>;
+  return (
+    <div className="text-black flex flex-col h-fit w-full gap-4">
+      <FeedCard />
+      <FeedCard />
+      <FeedCard />
+      <FeedCard />
+      <FeedCard />
+      <FeedCard />
+    </div>
+  );
 }

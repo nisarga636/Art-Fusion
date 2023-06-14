@@ -56,7 +56,7 @@ export default function Login() {
                 userId: values.userId,
                 password: values.password,
                 redirect: false,
-                for:"sign-up"
+                for:"sign-in"
               }).then((value) => {
                 if (value?.error) setError(value.error);
                 else {

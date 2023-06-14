@@ -6,8 +6,16 @@ interface props {
 
 export default function RootLayout({ children }: props) {
   return (
-    <div className="flex w-full h-full ">
-      <main className="h-full w-full overflow-y-scroll">{children}</main>
-    </div>
+    <main
+      className="h-full w-full"
+      style={{
+        paddingRight: "240px",
+        paddingLeft: "240px",
+        paddingTop: "30px",
+        height: "100%",
+      }}
+    >
+      {children}
+    </main>
   );
 }

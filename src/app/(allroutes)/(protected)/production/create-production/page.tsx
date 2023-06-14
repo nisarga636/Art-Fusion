@@ -1,7 +1,6 @@
 "use client";
 
-import LabelDemo from "@/components/Input";
-import InputBox from "@/components/inputbox";
+import InputBox from "@/components/util/inputbox";
 import React from "react";
 
 export default function page() {

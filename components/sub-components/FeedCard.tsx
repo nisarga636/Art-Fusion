@@ -3,9 +3,9 @@ import { SlBadge, SlLocationPin } from "react-icons/sl";
 import { badgeVariants } from "../ui/badge";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
-import { AiOutlineHeart } from "react-icons/ai";
 import { Artist } from "@/store/artists.slice";
 import Link from "next/link";
+import { LikeButton } from "../ui/LikeButton";
 
 export default function FeedCard({
   feed,
@@ -60,15 +60,7 @@ export default function FeedCard({
           </div>
         </div>
         <div className="flex gap-3 items-center">
-          <Button
-            onClick={() => {
-              console.log("liked");
-            }}
-            variant={"ghost"}
-            className="rounded-full p-1 h-10 w-10 hover:bg-pink-100 hover:text-pink-500"
-          >
-            <AiOutlineHeart className="text-xl text-pink-500" />
-          </Button>
+          <LikeButton postId={feed.id}/>
           {viewProfile && (
             <Link href={`/production/v/${feed.id}`}>
               <Button
@@ -106,3 +98,5 @@ export default function FeedCard({
     </div>
   );
 }
+
+

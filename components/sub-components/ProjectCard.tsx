@@ -5,12 +5,26 @@ import { cn } from "@/lib/utils";
 import { AiOutlineCheckCircle, AiOutlineClockCircle } from "react-icons/ai";
 import { faker } from "@faker-js/faker";
 import Image from "next/image";
+import { Project } from "@/store/productions.slice";
 
-export default function FeedCard() {
+export default function ProjectCard({
+  className,
+  isViewFull,
+  feed,
+}: {
+  className?: string;
+  isViewFull?: boolean;
+  feed: Project;
+}) {
   return (
-    <div className="bg-white flex flex-col w-full overflow-hidden rounded-xl shadow-sm shadow-primary-foreground border border-slate-100 hover:bg-slate-50 hover:border hover:border-primary transition-all duration-300 hover:cursor-pointer">
+    <div
+      className={cn(
+        "bg-white flex flex-col w-full overflow-hidden rounded-sm shadow-sm shadow-primary-foreground border border-slate-100 hover:bg-slate-50 hover:border hover:border-primary transition-all duration-300 hover:cursor-pointer",
+        className
+      )}
+    >
       <div className="h-[280px] w-full relative overflow-hidden">
-        <Image src={faker.image.abstract(640,480,true)} fill alt={"poster"} />
+        <Image src={feed.poster!} fill alt={"poster"} />
       </div>
 
       <div className="p-3">
@@ -19,8 +33,13 @@ export default function FeedCard() {
           <div className="flex items-center">
             <div className="flex flex-col pr-3 gap-2">
               <div className="flex items-center gap-3">
-                <h1 className="text-lg font-semibold whitespace-nowrap w-40 truncate">
-                  {faker.random.words(2)}
+                <h1
+                  className={
+                    "text-lg font-semibold " +
+                    (isViewFull ? "" : "whitespace-nowrap max-w-[120px] truncate")
+                  }
+                >
+                  {feed.title}
                 </h1>
                 <span
                   className={cn(
@@ -28,22 +47,22 @@ export default function FeedCard() {
                     "bg-blue-50 py-1 h-fit text-primary gap-2"
                   )}
                 >
-                  {faker.datatype.number({ min: 20, max: 60 })} months
+                  {feed.duration} months
                 </span>
               </div>
               <div className="flex gap-3">
                 <span className="flex gap-2 items-center font-medium">
-                  ₹
-                  <span className="text-sm">
-                    {faker.datatype
-                      .number({ min: 200000, max: 80000000 })
-                      .toLocaleString("en-IN")}
-                  </span>
+                  ₹<span className="text-sm">{feed.budget}</span>
                 </span>
                 <span className="flex gap-2 items-center">
                   <SlLocationPin className="text-lg text-primary" />
-                  <span className="text-sm whitespace-nowrap">
-                    {faker.address.cityName()}
+                  <span
+                    className={
+                      "text-sm " +
+                      (isViewFull ? "" : "whitespace-nowrap w-40 truncate")
+                    }
+                  >
+                    {feed.address}
                   </span>
                 </span>
               </div>
@@ -71,7 +90,12 @@ export default function FeedCard() {
         </div>
 
         {/* about */}
-        <div className="flex items-center justify-between py-5 px-2">
+        <div
+          className={
+            "flex items-center py-5 " +
+            (isViewFull ? "gap-3" : "justify-between px-2")
+          }
+        >
           <div className="flex">
             <AiOutlineCheckCircle className="text-xl mr-2 text-green-500" />
             <span>12 Tasks Completed</span>

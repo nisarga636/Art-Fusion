@@ -19,8 +19,8 @@ export default function RootLayout({ children }: props) {
     <main
       className="h-full w-full"
       style={{
-        paddingRight: "240px",
-        paddingLeft: "240px",
+        paddingRight: "210px",
+        paddingLeft: "210px",
         paddingTop: "30px",
         paddingBottom: "30px",
         height: "100%",

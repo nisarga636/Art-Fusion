@@ -1,19 +1,31 @@
+"use client";
+import { usePathname } from "next/navigation";
 import "./globals.css";
 import Providers from "./providers";
-import {Poppins} from "next/font/google"
+import { Poppins } from "next/font/google";
+import NavBar from "@/components/sub-components/NavBar";
 
 interface props {
   children: React.ReactNode;
-  navbar: React.ReactNode;
 }
 
-const roboto = Poppins({weight:["400","100","600","700","800"],subsets:["devanagari"]})
+const roboto = Poppins({
+  weight: ["400", "100", "600", "700", "800"],
+  subsets: ["devanagari"],
+});
 
-export default function RootLayout({ children, navbar }: props) {
+export default function RootLayout({ children }: props) {
+  const pathName = usePathname();
   return (
     <html lang="en">
-      <body className="h-[100vh] w-[100vw] overflow-x-hidden" style={roboto.style}>
-        {navbar}
+      <body
+        className="h-[100vh] w-[100vw] overflow-x-hidden"
+        style={roboto.style}
+      >
+        <NavBar
+          isFor={pathName.startsWith("/production") ? "PRODUCTION" : "DEFAULT"}
+        />
+
         <Providers>{children}</Providers>
       </body>
     </html>

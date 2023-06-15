@@ -30,14 +30,14 @@ export default function FeedCard({
       <div className="flex w-full items-center justify-between">
         <div className="flex items-center">
           <Avatar className="h-12 w-12">
-            <AvatarImage src={feed.avatar} />
+            <AvatarImage src={feed.image!} />
             <AvatarFallback>
               <AvatarImage />
             </AvatarFallback>
           </Avatar>
           <div className={"flex flex-col px-3 gap-2"}>
             <div className="flex items-center gap-3">
-              <h1 className="text-md font-medium">{feed.fullname}</h1>
+              <h1 className="text-md font-medium">{feed.name}</h1>
               <span
                 className={cn(
                   badgeVariants({ variant: "secondary" }),
@@ -50,11 +50,11 @@ export default function FeedCard({
             <div className="flex gap-4">
               <span className={"flex gap-2 items-center"}>
                 <SlBadge className="text-lg text-primary" />
-                <span className="text-sm">{feed.field}</span>
+                <span className="text-sm">{feed.as}</span>
               </span>
               <span className={"flex gap-2 items-center"}>
                 <SlLocationPin className="text-lg text-primary" />{" "}
-                <span className="text-sm">{feed.location}</span>
+                <span className="text-sm">{feed.address}</span>
               </span>
             </div>
           </div>
@@ -77,7 +77,7 @@ export default function FeedCard({
       </div>
 
       {/* about */}
-      <p className="py-3 text-md text-slate-500">{feed.about}</p>
+      <p className="py-3 text-md text-slate-500">{}</p>
 
       {/* skills */}
       <div className="flex gap-3">

@@ -11,7 +11,7 @@ const main = async () => {
   await client.user.deleteMany();
   await client.prev_projects.deleteMany();
 
-  const hashedPasswored = await hash("test1234",12);
+  const hashedPasswored = await hash("test1234", 12);
 
   for (let i = 0; i < 10; i++) {
     const roles = ["ARTIST", "PROD_OWNER"];
@@ -37,7 +37,17 @@ const main = async () => {
         phone_no: faker.phone.number("+91 ##### #####"),
         physical_details: "Eye Color - Brown",
         role_type: roles[randomIndex] as roles,
-        skill: faker.random.words(10),
+        skills: new Array(faker.datatype.number({ min: 1, max: 8 })).fill(
+          faker.random.word()
+        ),
+        as: faker.helpers.arrayElement([
+          "Actor",
+          "Camera Man",
+          "Musician",
+          "Editor",
+          "Director",
+          "Writer",
+        ]),
       },
     });
   }
@@ -80,7 +90,7 @@ const main = async () => {
           no_of_shooting_days: parseInt(faker.random.numeric(1)),
           artistsId: prod_owner.id,
           payment_provided: faker.datatype.boolean(),
-          poster: faker.image.abstract(),
+          poster: faker.image.abstract(640, 480, true),
           release_date: faker.date.future(2),
           restrictions: `No Smoking, No alcl`,
           title: faker.lorem.word(2),

@@ -1,8 +1,8 @@
 "use client";
 
 import { useAppDispatch } from "@/lib/hooks";
-import { addManyArtist } from "@/store/artists.slice";
-import { faker } from "@faker-js/faker";
+import { useAppSelector } from "@/store";
+import { ArtistSelector, fetchIntialArtist } from "@/store/artists.slice";
 
 interface props {
   children: React.ReactNode;
@@ -10,25 +10,11 @@ interface props {
 
 export default function RootLayout({ children }: props) {
   const dispatch = useAppDispatch();
+  const isAlereadyArtistsExist = useAppSelector(ArtistSelector.selectIds)
+    .length;
 
-  dispatch(
-    addManyArtist(
-      new Array(9)
-        .fill({
-          about: faker.lorem.sentences(),
-          id: faker.random.numeric(42),
-          age: faker.datatype.number({ min: 20, max: 60 }),
-          field: "Actor",
-          fullname: faker.name.fullName(),
-          location: faker.address.city() + ", " + faker.address.country(),
-          skills: new Array(faker.datatype.number({ min: 1, max: 7 })).fill(
-            faker.random.word()
-          ),
-          avatar: faker.image.avatar(),
-        })
-        .map((artist) => artist)
-    )
-  );
+  if (!isAlereadyArtistsExist) dispatch(fetchIntialArtist());
+
   return (
     <main
       className="h-full w-full"

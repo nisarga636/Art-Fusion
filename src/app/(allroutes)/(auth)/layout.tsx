@@ -12,8 +12,6 @@ export default async function RootLayout({ children }: props) {
   if (session?.user && session?.user?.role == "ARTIST") redirect("/artist");
   if (session?.user && session?.user?.role == "PROD_OWNER")
     redirect("/production");
-  if (session?.user && session?.user?.role == "UNRECONGNIZED")
-    redirect("/artist");
 
   return <div>{children}</div>;
 }

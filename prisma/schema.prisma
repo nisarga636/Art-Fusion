@@ -80,27 +80,14 @@ model productionProfiles {
   address             String
   no_of_shooting_days Int
   created_at          DateTime        @default(dbgenerated("now()"))
-  updated_at          DateTime        @updatedAt
+  updated_at          DateTime        @default(dbgenerated("now()"))
   release_date        DateTime
   payment_provided    Boolean
   restrictions        String
   poster              String
   budget              Int
-  duration            Int
-  gener_on_prod       gener_on_prod[]
+  gener_on_prod       String[]
   artists             user?           @relation(fields: [artistsId], references: [id])
   artistsId           String?         @db.Uuid
 }
 
-model gener_on_prod {
-  id                String             @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  prod_id           String             @db.Uuid
-  genere            String
-  productionProfile productionProfiles @relation(fields: [prod_id], references: [id])
-  genere_category   genere_category    @relation(fields: [genere], references: [genere_type])
-}
-
-model genere_category {
-  genere_type   String          @id
-  gener_on_prod gener_on_prod[]
-}

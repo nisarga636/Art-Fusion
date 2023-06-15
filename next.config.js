@@ -5,6 +5,9 @@ const nextConfig = {
     remotePatterns:[
       {
         hostname:"loremflickr.com"
+      },
+      {
+        hostname:"localhost"
       }
     ]
   }

@@ -6,6 +6,7 @@ import { AiOutlineCheckCircle, AiOutlineClockCircle } from "react-icons/ai";
 import { faker } from "@faker-js/faker";
 import Image from "next/image";
 import { Project } from "@/store/productions.slice";
+import { SupaClient } from "../../utils/supabase";
 
 export default function ProjectCard({
   className,
@@ -24,7 +25,14 @@ export default function ProjectCard({
       )}
     >
       <div className="h-[280px] w-full relative overflow-hidden">
-        <Image src={feed.poster!} fill alt={"poster"} />
+        <Image
+          src={
+            SupaClient.storage.from("posters").getPublicUrl(feed.poster,{download:true}).data
+              .publicUrl ?? "/poster.jpg"
+          }
+          fill
+          alt={"poster"}
+        />
       </div>
 
       <div className="p-3">
@@ -36,7 +44,9 @@ export default function ProjectCard({
                 <h1
                   className={
                     "text-lg font-semibold " +
-                    (isViewFull ? "" : "whitespace-nowrap max-w-[120px] truncate")
+                    (isViewFull
+                      ? ""
+                      : "whitespace-nowrap max-w-[120px] truncate")
                   }
                 >
                   {feed.title}
@@ -47,7 +57,7 @@ export default function ProjectCard({
                     "bg-blue-50 py-1 h-fit text-primary gap-2"
                   )}
                 >
-                  {feed.duration} months
+                  {feed.no_of_shooting_days} days
                 </span>
               </div>
               <div className="flex gap-3">
@@ -59,7 +69,7 @@ export default function ProjectCard({
                   <span
                     className={
                       "text-sm " +
-                      (isViewFull ? "" : "whitespace-nowrap w-40 truncate")
+                      (isViewFull ? "" : "whitespace-nowrap w-28 truncate")
                     }
                   >
                     {feed.address}
@@ -68,7 +78,7 @@ export default function ProjectCard({
               </div>
             </div>
           </div>
-          <div className="flex -space-x-3">
+          <div className="flex -space-x-4">
             <Avatar className="border-2 border-white">
               <AvatarImage src={faker.image.avatar()} />
               <AvatarFallback>A</AvatarFallback>
@@ -90,19 +100,14 @@ export default function ProjectCard({
         </div>
 
         {/* about */}
-        <div
-          className={
-            "flex items-center py-5 " +
-            (isViewFull ? "gap-3" : "justify-between px-2")
-          }
-        >
+        <div className={"flex items-center py-5 gap-3"}>
           <div className="flex">
             <AiOutlineCheckCircle className="text-xl mr-2 text-green-500" />
-            <span>12 Tasks Completed</span>
+            <span>12 Tasks</span>
           </div>
           <div className="flex">
             <AiOutlineClockCircle className="text-xl mr-2 text-yellow-500" />
-            <span>124 Tasks Pending</span>
+            <span>124 Tasks</span>
           </div>
         </div>
         {/* skills */}

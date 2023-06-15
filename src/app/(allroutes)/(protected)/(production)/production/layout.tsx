@@ -3,30 +3,53 @@
 import { useAppDispatch } from "@/lib/hooks";
 import { useAppSelector } from "@/store";
 import { ArtistSelector, fetchIntialArtist } from "@/store/artists.slice";
+import { usePathname } from "next/navigation";
 
 interface props {
   children: React.ReactNode;
+  sidebar: React.ReactNode;
+  createProdModal: React.ReactNode;
 }
 
-export default function RootLayout({ children }: props) {
+export default function RootLayout({ children, sidebar }: props) {
   const dispatch = useAppDispatch();
-  const isAlereadyArtistsExist = useAppSelector(ArtistSelector.selectIds)
-    .length;
+  const isAlereadyArtistsExist = useAppSelector(
+    ArtistSelector.selectIds
+  ).length;
+  const pathname = usePathname();
+  const isCreateProductionPage = pathname === "/production/create-production";
 
   if (!isAlereadyArtistsExist) dispatch(fetchIntialArtist());
 
   return (
     <main
-      className="h-full w-full"
+      className="h-full w-full grid gap-3"
       style={{
-        paddingRight: "210px",
-        paddingLeft: "210px",
+        paddingRight: "100px",
+        paddingLeft: "100px",
         paddingTop: "30px",
         paddingBottom: "30px",
-        height: "100%",
+        gridTemplateColumns: "repeat(12, minmax(0, 1fr))",
+        height: "full",
       }}
     >
-      {children}
+      {!isCreateProductionPage && (
+        <div
+          className="h-full w-full sticky top-14"
+          style={{ gridColumnStart: 1, gridColumnEnd: 4 }}
+        >
+          {sidebar}
+        </div>
+      )}
+      <div
+        className="h-full w-full col-span-2"
+        style={{
+          gridColumnStart: isCreateProductionPage ? 3 : 4,
+          gridColumnEnd: isCreateProductionPage ? 11 : 12,
+        }}
+      >
+        {children}
+      </div>
     </main>
   );
 }

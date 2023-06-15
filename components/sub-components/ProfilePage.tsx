@@ -28,20 +28,20 @@ export const ProfilePage = () => {
 
   return (
     <div
-      className="bg-white rounded-lg shadow-md "
-      style={{ padding: "20px", gap: "10px" }}
+      className="bg-white rounded-lg shadow-md"
+      style={{ padding: "28px", gap: "10px" }}
     >
-      <div className="" style={{ marginBottom: "10px" }}>
+      <div className="flex items-center flex-col gap-3" style={{ marginBottom: "10px" }}>
         <Avatar className="h-36 w-36">
           <AvatarImage src={profile?.image!} />
           <AvatarFallback></AvatarFallback>
         </Avatar>
+        <h1 className="text-black text-3xl font-bold">{profile?.name}</h1>
+        <span className="bg-indigo-200 flex w-fit items-center gap-2 p-1 rounded-full px-3 text-indigo-800">
+          <AiOutlineShop className="text-lg" />
+          {profile?.role_type == "ARTIST" ? "Artist" : "Production House"}
+        </span>
       </div>
-      <h1 className="text-black text-3xl font-bold mb-4">{profile?.name}</h1>
-      <span className="bg-indigo-200 flex w-fit items-center gap-2 p-1 rounded-full px-3 text-indigo-800">
-        <AiOutlineShop className="text-lg" />
-        {profile?.role_type == "ARTIST" ? "Artist" : "Production House"}
-      </span>
       <p className="text-gray-600 py-3">{profile?.about}</p>
       {/* <p className="text-gray-600 mb-2">
           <span className="font-semibold">Date of Birth:</span> {dob}

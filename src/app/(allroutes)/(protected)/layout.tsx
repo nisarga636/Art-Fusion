@@ -9,7 +9,7 @@ interface props {
 export default async function RootLayout({ children }: props) {
   const session = await getServerSession(NextAuthOptions);
 
-  if (!session?.user) redirect("/sign-in");
+  //if (!session?.user) redirect("/sign-in");
 
   return <>{children}</>;
 }

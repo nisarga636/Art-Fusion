@@ -24,10 +24,11 @@ export default function MyProjectsPage() {
 
   return (
     <div
-      className="grid gap-3 px-5 pb-5"
+      className="grid gap-3"
       style={{
         gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
         height: "auto",
+        padding:"20px"
       }}
     >
       {projects.map((feed) => (

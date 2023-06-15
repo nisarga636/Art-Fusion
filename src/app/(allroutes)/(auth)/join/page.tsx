@@ -23,8 +23,8 @@ export default function Login() {
   const router = useRouter();
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 h-screen w-full">
-      <div className="sm:block">
+    <div className="flex h-screen w-full">
+      <div className="flex-1">
         <img
           className="w-full h-full object-cover" /* https://images.unsplash.com/photo-1611425143678-08fc480cafde?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3MjAxN3wwfDF8c2VhcmNofDM4fHxjYW1lcmElMjBjcmV3fGVufDB8fHx8MTY4NjE0NzQxOHww&ixlib=rb-4.0.3&q=85&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450 */
           src="https://images.unsplash.com/photo-1496559249665-c7e2874707ea?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3MjAxN3wwfDF8c2VhcmNofDF8fG1hbiUyMHJlY29yZGluZyUyMHdpdGglMjBjYW1lcmF8ZW58MHx8fHwxNjg2MTQ3ODYyfDA&ixlib=rb-4.0.3&q=85&q=85&fmt=jpg&crop=entropy&cs=tinysrgb&w=450"
@@ -32,7 +32,7 @@ export default function Login() {
         />
       </div>
 
-      <div className="bg-white flex flex-col justify-center">
+      <div className="bg-white flex flex-col justify-center flex-1 w-full">
         <div className=" w-full h-screen bg-white p-8 px-8">
           <div className="px-28 flex flex-col">
             {error && (

@@ -1,10 +1,11 @@
+"use client"
 import { Inter } from "next/font/google";
 import { Button } from "../ui/button";
 import NavButton from "../ui/navbutton";
 import { AiFillHeart } from "react-icons/ai";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { faker } from "@faker-js/faker";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 const italiana = Inter({ weight: "700", subsets: ["latin"] });
 
@@ -13,6 +14,8 @@ export default function NavBar({
 }: {
   isFor?: "PRODUCTION" | "ARTIST" | "DEFAULT";
 }) {
+  const session = useSession();
+
   return (
     <nav className="bg-[rgba(255,255,255,0.8)] backdrop-blur-sm z-40  h-[58px] sticky top-0 left-0 flex items-center shadow-sm px-10 justify-between">
       <Link
@@ -41,7 +44,7 @@ export default function NavBar({
             </NavButton>
             <NavButton href="/production/my-profile">
               <Avatar>
-                <AvatarImage src={faker.image.avatar()} />
+                <AvatarImage src={session.data?.user?.image!} />
                 <AvatarFallback>
                   <AvatarImage />
                 </AvatarFallback>
@@ -50,13 +53,19 @@ export default function NavBar({
           </>
         ) : (
           <>
-            <Button size={"sm"} variant={"ghost"}>
-              Login as Talent
-            </Button>
-            <Button size={"sm"}>Hire Talent</Button>
-            <Button size={"sm"} variant={"outline"}>
-              Apply as Talent
-            </Button>
+            <Link href={"/sign-in"}>
+              <Button size={"sm"} variant={"ghost"}>
+                Login as Talent
+              </Button>
+            </Link>
+            <Link href={"/sign-in"}>
+              <Button size={"sm"}>Hire Talent</Button>
+            </Link>
+            <Link href={"/join"}>
+              <Button size={"sm"} variant={"outline"}>
+                Apply as Talent
+              </Button>
+            </Link>
           </>
         )}
       </div>

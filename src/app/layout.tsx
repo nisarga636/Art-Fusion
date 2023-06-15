@@ -22,11 +22,21 @@ export default function RootLayout({ children }: props) {
         className="h-[100vh] w-[100vw] overflow-x-hidden"
         style={roboto.style}
       >
-        <NavBar
-          isFor={pathName.startsWith("/production") ? "PRODUCTION" : "DEFAULT"}
-        />
+        <Providers>
+          {pathName !== "/sign-in" && pathName !== "/join" && (
+            <NavBar
+              isFor={
+                pathName.startsWith("/production")
+                  ? "PRODUCTION"
+                  : pathName.startsWith("/artist")
+                  ? "ARTIST"
+                  : "DEFAULT"
+              }
+            />
+          )}
 
-        <Providers>{children}</Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );

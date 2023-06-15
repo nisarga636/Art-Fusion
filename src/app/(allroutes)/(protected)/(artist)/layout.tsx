@@ -9,11 +9,7 @@ interface props {
 export default async function RootLayout({ children }: props) {
   const session = await getServerSession(NextAuthOptions);
 
-  if (session?.user && session?.user?.role == "ARTIST") redirect("/artist");
-  if (session?.user && session?.user?.role == "PROD_OWNER")
-    redirect("/production");
-  if (session?.user && session?.user?.role == "UNRECONGNIZED")
-    redirect("/artist");
+  if (session?.user?.role !== "ARTIST") redirect("/sign-in");
 
-  return <div>{children}</div>;
+  return <>{children}</>;
 }

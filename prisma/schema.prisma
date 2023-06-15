@@ -36,7 +36,7 @@ model session {
 model user {
   id                 String               @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   email              String?              @unique
-  emailVerified      DateTime?     
+  emailVerified      DateTime?
   image              String?
   name               String
   isNewUser          Boolean              @default(true)
@@ -46,10 +46,12 @@ model user {
   age                Int?
   address            String?
   physical_details   String?
-  expected_payment   Boolean?
-  skill              String?
+  expected_payment   Boolean?             @default(true)
+  skills             String[]
+  favourites         String[]
+  as                 String?              @default("Actor")
   id_proof           String?
-  role_type          roles?               @default(UNRECONGNIZED)
+  role_type          roles?               @default(ARTIST)
   account            account[]
   session            session[]
   productionProfiles productionProfiles[]
@@ -60,7 +62,6 @@ model user {
 enum roles {
   ARTIST
   PROD_OWNER
-  UNRECONGNIZED
 }
 
 model prev_projects {

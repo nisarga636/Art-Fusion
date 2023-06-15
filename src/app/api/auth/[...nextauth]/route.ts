@@ -73,6 +73,7 @@ export const NextAuthOptions: AuthOptions = {
               email: credentials.userId,
               name: "Test User",
               password: hashedPassword,
+              role_type: "ARTIST",
             },
           });
 
@@ -92,20 +93,24 @@ export const NextAuthOptions: AuthOptions = {
     // signOut: "/sign-out",
     // error: '/error', // Error code passed in query string as ?error=
     verifyRequest: "/verify-request", // (used for check email message)
-    newUser: "/user", // New users will be directed here on first sign in (leave the property out if not of interest)
+    // newUser: "/user", // New users will be directed here on first sign in (leave the property out if not of interest)
   },
   callbacks: {
     session: async ({ session, token }) => {
       if (session?.user) {
         session.user.id = token.uid;
-        session.user.role = token.role;
+        const user = await prisma.user.findUnique({ where: { id: token.uid } });
+        if (user?.role_type) session.user.role = user.role_type;
       }
       return session;
     },
     jwt: async ({ user, token }) => {
       if (user) {
         token.uid = user.id;
-        token.role = user.role;
+        const userRes = await prisma.user.findUnique({
+          where: { id: user.id },
+        });
+        if (userRes?.role_type) token.role = userRes.role_type;
       }
       return token;
     },

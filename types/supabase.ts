@@ -34,54 +34,48 @@ export interface Database {
   }
   public: {
     Tables: {
-      artists: {
+      account: {
         Row: {
-          address: string
-          age: number
-          date_of_birth: string
-          email: string
-          expected_payment: boolean
+          access_token: string | null
+          expires_at: number | null
           id: string
-          id_proof: string
-          name: string
-          password: string
-          phone_no: string
-          physical_details: string
-          pp_id: string
-          role_type: Database["public"]["Enums"]["roles"]
-          skill: string
+          id_token: string | null
+          provider: string
+          providerAccountId: string
+          refresh_token: string | null
+          scope: string | null
+          session_state: string | null
+          token_type: string | null
+          type: string
+          userId: string
         }
         Insert: {
-          address: string
-          age: number
-          date_of_birth: string
-          email: string
-          expected_payment: boolean
+          access_token?: string | null
+          expires_at?: number | null
           id?: string
-          id_proof: string
-          name: string
-          password: string
-          phone_no: string
-          physical_details: string
-          pp_id: string
-          role_type: Database["public"]["Enums"]["roles"]
-          skill: string
+          id_token?: string | null
+          provider: string
+          providerAccountId: string
+          refresh_token?: string | null
+          scope?: string | null
+          session_state?: string | null
+          token_type?: string | null
+          type: string
+          userId: string
         }
         Update: {
-          address?: string
-          age?: number
-          date_of_birth?: string
-          email?: string
-          expected_payment?: boolean
+          access_token?: string | null
+          expires_at?: number | null
           id?: string
-          id_proof?: string
-          name?: string
-          password?: string
-          phone_no?: string
-          physical_details?: string
-          pp_id?: string
-          role_type?: Database["public"]["Enums"]["roles"]
-          skill?: string
+          id_token?: string | null
+          provider?: string
+          providerAccountId?: string
+          refresh_token?: string | null
+          scope?: string | null
+          session_state?: string | null
+          token_type?: string | null
+          type?: string
+          userId?: string
         }
       }
       gener_on_prod: {
@@ -141,12 +135,12 @@ export interface Database {
       productionProfiles: {
         Row: {
           address: string
+          artistsId: string | null
           budget: number
           created_at: string
           duration: number
           id: string
           no_of_shooting_days: number
-          p_owner_id: string
           payment_provided: boolean
           poster: string
           release_date: string
@@ -156,12 +150,12 @@ export interface Database {
         }
         Insert: {
           address: string
+          artistsId?: string | null
           budget: number
           created_at?: string
           duration: number
           id?: string
           no_of_shooting_days: number
-          p_owner_id: string
           payment_provided: boolean
           poster: string
           release_date: string
@@ -171,18 +165,100 @@ export interface Database {
         }
         Update: {
           address?: string
+          artistsId?: string | null
           budget?: number
           created_at?: string
           duration?: number
           id?: string
           no_of_shooting_days?: number
-          p_owner_id?: string
           payment_provided?: boolean
           poster?: string
           release_date?: string
           restrictions?: string
           title?: string
           updated_at?: string
+        }
+      }
+      session: {
+        Row: {
+          expires: string
+          id: string
+          sessionToken: string
+          userId: string
+        }
+        Insert: {
+          expires: string
+          id?: string
+          sessionToken: string
+          userId: string
+        }
+        Update: {
+          expires?: string
+          id?: string
+          sessionToken?: string
+          userId?: string
+        }
+      }
+      user: {
+        Row: {
+          address: string | null
+          age: number | null
+          as: string | null
+          date_of_birth: string | null
+          email: string | null
+          emailVerified: string | null
+          expected_payment: boolean | null
+          favourites: string[] | null
+          id: string
+          id_proof: string | null
+          image: string | null
+          isNewUser: boolean
+          name: string
+          password: string | null
+          phone_no: string | null
+          physical_details: string | null
+          role_type: Database["public"]["Enums"]["roles"] | null
+          skills: string[] | null
+        }
+        Insert: {
+          address?: string | null
+          age?: number | null
+          as?: string | null
+          date_of_birth?: string | null
+          email?: string | null
+          emailVerified?: string | null
+          expected_payment?: boolean | null
+          favourites?: string[] | null
+          id?: string
+          id_proof?: string | null
+          image?: string | null
+          isNewUser?: boolean
+          name: string
+          password?: string | null
+          phone_no?: string | null
+          physical_details?: string | null
+          role_type?: Database["public"]["Enums"]["roles"] | null
+          skills?: string[] | null
+        }
+        Update: {
+          address?: string | null
+          age?: number | null
+          as?: string | null
+          date_of_birth?: string | null
+          email?: string | null
+          emailVerified?: string | null
+          expected_payment?: boolean | null
+          favourites?: string[] | null
+          id?: string
+          id_proof?: string | null
+          image?: string | null
+          isNewUser?: boolean
+          name?: string
+          password?: string | null
+          phone_no?: string | null
+          physical_details?: string | null
+          role_type?: Database["public"]["Enums"]["roles"] | null
+          skills?: string[] | null
         }
       }
     }

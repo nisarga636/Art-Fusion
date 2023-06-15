@@ -31,7 +31,7 @@ export default function page() {
       }}
     >
       {projects.map((feed) => (
-        <Link href={`/production/my-projects/v/${feed.id}`}>
+        <Link key={feed.id} href={`/production/my-projects/v/${feed.id}`}>
           <ProjectCard {...{ feed }} />
         </Link>
       ))}

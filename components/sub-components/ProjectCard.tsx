@@ -27,8 +27,11 @@ export default function ProjectCard({
       <div className="h-[280px] w-full relative overflow-hidden">
         <Image
           src={
-            SupaClient.storage.from("posters").getPublicUrl(feed.poster,{download:true}).data
-              .publicUrl ?? "/poster.jpg"
+            feed.poster.startsWith("/")
+              ? SupaClient.storage
+                  .from("posters")
+                  .getPublicUrl(feed.poster, { download: true }).data.publicUrl
+              : feed.poster
           }
           fill
           alt={"poster"}

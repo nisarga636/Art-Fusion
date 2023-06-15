@@ -4,7 +4,7 @@ import { useAnimate, usePresence } from "framer-motion";
 import { useEffect } from "react";
 import { Button } from "./button";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
-import { LikesSelector, addOneLike, removeOneLike } from "@/store/likes.slice";
+import { addOneLike, removeOneLike } from "@/store/likes.slice";
 
 export const LikeButton = ({ postId }: { postId: string }) => {
   const LikeIds = useAppSelector((state) => state.likes.ids);
@@ -31,7 +31,7 @@ export const LikeButton = ({ postId }: { postId: string }) => {
     } else {
       safeToRemove();
     }
-  }, [isLiked]);
+  }, [isLiked,isPresent,scope]);
 
   return (
     <Button

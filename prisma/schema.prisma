@@ -47,22 +47,17 @@ model user {
   address            String?
   physical_details   String?
   expected_payment   Boolean?             @default(true)
-  skills             String[]
-  favourites         String[]
-  as                 String?              @default("Actor")
-  about              String?              @db.Text
   id_proof           String?
   role_type          roles?               @default(ARTIST)
+  as                 String?              @default("Actor")
+  favourites         String[]
+  skills             String[]
+  about              String?
   account            account[]
-  session            session[]
   productionProfiles productionProfiles[]
+  session            session[]
 
   @@index([id])
-}
-
-enum roles {
-  ARTIST
-  PROD_OWNER
 }
 
 model prev_projects {
@@ -75,19 +70,23 @@ model prev_projects {
 }
 
 model productionProfiles {
-  id                  String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  id                  String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   title               String
   address             String
   no_of_shooting_days Int
-  created_at          DateTime        @default(dbgenerated("now()"))
-  updated_at          DateTime        @default(dbgenerated("now()"))
+  created_at          DateTime @default(now())
+  updated_at          DateTime @default(now())
   release_date        DateTime
   payment_provided    Boolean
   restrictions        String
   poster              String
   budget              Int
+  artistsId           String?  @db.Uuid
   gener_on_prod       String[]
-  artists             user?           @relation(fields: [artistsId], references: [id])
-  artistsId           String?         @db.Uuid
+  artists             user?    @relation(fields: [artistsId], references: [id])
 }
 
+enum roles {
+  ARTIST
+  PROD_OWNER
+}

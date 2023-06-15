@@ -76,6 +76,7 @@
     "@storybook/react": "^7.0.8",
     "@storybook/testing-library": "^0.0.14-next.2",
     "@types/node": "18.16.3",
+    "encoding": "^0.1.13",
     "eslint-plugin-storybook": "^0.6.12",
     "nuxt-headlessui": "^1.1.4",
     "storybook": "^7.0.8",

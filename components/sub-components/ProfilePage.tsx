@@ -20,7 +20,7 @@ export const ProfilePage = () => {
       (await SupaClient.from("user").select("*").eq("id", user.id).single())
         .data
     );
-  }, [user?.id]);
+  }, [user]);
 
   useEffect(() => {
     if (user?.id) fetchUserProfie();

@@ -103,7 +103,7 @@ export default function CreateProdModal() {
         <div className="flex flex-col gap-2">
           <h3 className="text-xl">New Production</h3>
           <p className="text-sm text-slate-500">
-            Create your production here and make available to Talent's
+           {"Create your production here and make available to Talent's"}
           </p>
         </div>
       </div>

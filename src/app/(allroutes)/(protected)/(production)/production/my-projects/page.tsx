@@ -7,7 +7,7 @@ import Link from "next/link";
 import React from "react";
 import { BsCameraReels } from "react-icons/bs";
 
-export default function page() {
+export default function MyProjectsPage() {
   const projects = useAppSelector(ProjectSelector.selectAll);
   const projectsCount = useAppSelector(ProjectSelector.selectTotal);
   const isLoading = useAppSelector((state) => state.project.isLoading);

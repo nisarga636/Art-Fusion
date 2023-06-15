@@ -27,7 +27,7 @@ export default function ProjectCard({
       <div className="h-[280px] w-full relative overflow-hidden">
         <Image
           src={
-            feed.poster.startsWith("/")
+            feed.poster.startsWith("p/")
               ? SupaClient.storage
                   .from("posters")
                   .getPublicUrl(feed.poster, { download: true }).data.publicUrl
@@ -89,10 +89,6 @@ export default function ProjectCard({
             <Avatar className="border-2 border-white">
               <AvatarImage src={faker.image.avatar()} />
               <AvatarFallback>B</AvatarFallback>
-            </Avatar>
-            <Avatar className="border-2 border-white">
-              <AvatarImage src={faker.image.avatar()} />
-              <AvatarFallback>C</AvatarFallback>
             </Avatar>
             <Avatar>
               <AvatarFallback className="flex items-center justify-center bg-primary text-white border-2 border-white">

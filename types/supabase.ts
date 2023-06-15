@@ -201,6 +201,7 @@ export interface Database {
       }
       user: {
         Row: {
+          about: string | null
           address: string | null
           age: number | null
           as: string | null
@@ -221,6 +222,7 @@ export interface Database {
           skills: string[] | null
         }
         Insert: {
+          about?: string | null
           address?: string | null
           age?: number | null
           as?: string | null
@@ -241,6 +243,7 @@ export interface Database {
           skills?: string[] | null
         }
         Update: {
+          about?: string | null
           address?: string | null
           age?: number | null
           as?: string | null

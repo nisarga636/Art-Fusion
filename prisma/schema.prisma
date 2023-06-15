@@ -50,6 +50,7 @@ model user {
   skills             String[]
   favourites         String[]
   as                 String?              @default("Actor")
+  about              String?              @db.Text
   id_proof           String?
   role_type          roles?               @default(ARTIST)
   account            account[]

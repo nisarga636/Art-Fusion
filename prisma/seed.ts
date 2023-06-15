@@ -13,7 +13,7 @@ const main = async () => {
 
   const hashedPasswored = await hash("test1234", 12);
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 20; i++) {
     const roles = ["ARTIST", "PROD_OWNER"];
     const techroles = [
       "Camera Man",
@@ -21,6 +21,7 @@ const main = async () => {
       "Editor",
       "Muscian",
       "Voice Artist",
+      "Actor",
     ];
     const randomIndex = Math.floor(Math.random() * roles.length);
     await client.user.create({
@@ -40,14 +41,8 @@ const main = async () => {
         skills: new Array(faker.datatype.number({ min: 1, max: 8 })).fill(
           faker.random.word()
         ),
-        as: faker.helpers.arrayElement([
-          "Actor",
-          "Camera Man",
-          "Musician",
-          "Editor",
-          "Director",
-          "Writer",
-        ]),
+        as: faker.helpers.arrayElement(techroles),
+        about: faker.lorem.paragraph(4)
       },
     });
   }

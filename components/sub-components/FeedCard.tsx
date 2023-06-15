@@ -60,7 +60,7 @@ export default function FeedCard({
           </div>
         </div>
         <div className="flex gap-3 items-center">
-          <LikeButton postId={feed.id}/>
+          <LikeButton postId={feed.id} />
           {viewProfile && (
             <Link href={`/production/v/${feed.id}`}>
               <Button
@@ -77,10 +77,10 @@ export default function FeedCard({
       </div>
 
       {/* about */}
-      <p className="py-3 text-md text-slate-500">{}</p>
+      <p className="py-3 text-md text-slate-500">{feed.about}</p>
 
       {/* skills */}
-      <div className="flex gap-3">
+      <div className="flex gap-3 overflow-hidden">
         {feed.skills &&
           feed.skills.map((skill) => {
             return (
@@ -98,5 +98,3 @@ export default function FeedCard({
     </div>
   );
 }
-
-

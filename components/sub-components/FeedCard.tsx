@@ -82,9 +82,10 @@ export default function FeedCard({
       {/* skills */}
       <div className="flex gap-3 overflow-hidden">
         {feed.skills &&
-          feed.skills.map((skill) => {
+          feed.skills.map((skill, index) => {
             return (
               <span
+                key={skill + index}
                 className={cn(
                   badgeVariants({ variant: "secondary" }),
                   "bg-blue-50 py-2 px-3 h-fit text-sm font-semibold text-primary gap-2"

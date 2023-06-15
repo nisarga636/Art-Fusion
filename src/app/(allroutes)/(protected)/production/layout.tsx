@@ -22,10 +22,7 @@ export default function RootLayout({ children }: props) {
           fullname: faker.name.fullName(),
           location: faker.address.city() + ", " + faker.address.country(),
           skills: new Array(faker.datatype.number({ min: 1, max: 7 })).fill(
-            faker.word.verb({
-              length: { min: 8, max: 10 },
-              strategy: "closest",
-            })
+            faker.random.word()
           ),
           avatar: faker.image.avatar(),
         })

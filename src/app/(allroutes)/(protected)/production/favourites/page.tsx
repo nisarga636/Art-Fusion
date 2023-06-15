@@ -12,8 +12,8 @@ export default function FavouritesPage() {
 
   if (!likedIds.length || typeof artistProfile == "undefined")
     return (
-      <div className="flex items-center justify-center h-full w-full flex-col gap-4 pb-10">
-        <BsBox2Heart style={{ fontSize: "72px" }} />
+      <div className="flex items-center justify-center h-1/2 w-full flex-col gap-4 py-20" style={{paddingTop:"60px",paddingBottom:"60px"}}>
+        <BsBox2Heart style={{ fontSize: "72px" }} className="text-pink-600" />
         <span className="text-xl">No Favourite list yet !</span>
       </div>
     );

@@ -115,14 +115,17 @@ export default function ProjectCard({
         </div>
         {/* skills */}
         <div className="flex gap-3">
-          <span
-            className={cn(
-              badgeVariants({ variant: "secondary" }),
-              "bg-blue-50 py-2 px-3 h-fit text-sm font-semibold text-primary gap-2"
-            )}
-          >
-            Thriller
-          </span>
+          {feed.gener_on_prod?.map((gener, index) => (
+            <span
+              key={gener + 1}
+              className={cn(
+                badgeVariants({ variant: "secondary" }),
+                "bg-blue-50 py-2 px-3 h-fit text-sm font-semibold text-primary gap-2"
+              )}
+            >
+              {gener}
+            </span>
+          ))}
         </div>
       </div>
     </div>

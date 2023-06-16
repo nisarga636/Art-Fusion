@@ -123,7 +123,7 @@ export default function Login() {
           </div>
           <h3 className="text-sm  mt-10 dark:text-black font-semibold text-center">
             <Link href="/join" className="underline">
-              don't have an account?
+              {"don't have an account?"}
             </Link>
           </h3>
         </div>

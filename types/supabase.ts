@@ -78,34 +78,6 @@ export interface Database {
           userId?: string
         }
       }
-      gener_on_prod: {
-        Row: {
-          genere: string
-          id: string
-          prod_id: string
-        }
-        Insert: {
-          genere: string
-          id?: string
-          prod_id: string
-        }
-        Update: {
-          genere?: string
-          id?: string
-          prod_id?: string
-        }
-      }
-      genere_category: {
-        Row: {
-          genere_type: string
-        }
-        Insert: {
-          genere_type: string
-        }
-        Update: {
-          genere_type?: string
-        }
-      }
       prev_projects: {
         Row: {
           id: string
@@ -138,7 +110,7 @@ export interface Database {
           artistsId: string | null
           budget: number
           created_at: string
-          duration: number
+          gener_on_prod: string[] | null
           id: string
           no_of_shooting_days: number
           payment_provided: boolean
@@ -153,7 +125,7 @@ export interface Database {
           artistsId?: string | null
           budget: number
           created_at?: string
-          duration: number
+          gener_on_prod?: string[] | null
           id?: string
           no_of_shooting_days: number
           payment_provided: boolean
@@ -161,14 +133,14 @@ export interface Database {
           release_date: string
           restrictions: string
           title: string
-          updated_at: string
+          updated_at?: string
         }
         Update: {
           address?: string
           artistsId?: string | null
           budget?: number
           created_at?: string
-          duration?: number
+          gener_on_prod?: string[] | null
           id?: string
           no_of_shooting_days?: number
           payment_provided?: boolean
@@ -201,6 +173,7 @@ export interface Database {
       }
       user: {
         Row: {
+          about: string | null
           address: string | null
           age: number | null
           as: string | null
@@ -221,6 +194,7 @@ export interface Database {
           skills: string[] | null
         }
         Insert: {
+          about?: string | null
           address?: string | null
           age?: number | null
           as?: string | null
@@ -241,6 +215,7 @@ export interface Database {
           skills?: string[] | null
         }
         Update: {
+          about?: string | null
           address?: string | null
           age?: number | null
           as?: string | null

@@ -5,6 +5,12 @@ const nextConfig = {
     remotePatterns:[
       {
         hostname:"loremflickr.com"
+      },
+      {
+        hostname:"localhost"
+      },
+      {
+        hostname:"kvhxfuyfczradcderjky.supabase.co"
       }
     ]
   }

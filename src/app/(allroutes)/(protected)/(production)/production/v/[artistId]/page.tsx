@@ -33,7 +33,7 @@ export default function ViewArtistProfile() {
         >
           <AiOutlineArrowLeft className="text-xl" />
         </Button>
-        <h3 className="text-xl">Talent's Profile</h3>
+        <h3 className="text-xl">{"Talent's Profile"}</h3>
       </div>
       <FeedCard
         className="rounded-none rounded-t-xl hover:cursor-auto hover:border-gray-300 hover:bg-white active:scale-100"

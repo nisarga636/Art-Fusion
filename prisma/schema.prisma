@@ -47,21 +47,17 @@ model user {
   address            String?
   physical_details   String?
   expected_payment   Boolean?             @default(true)
-  skills             String[]
-  favourites         String[]
-  as                 String?              @default("Actor")
   id_proof           String?
   role_type          roles?               @default(ARTIST)
+  as                 String?              @default("Actor")
+  favourites         String[]
+  skills             String[]
+  about              String?
   account            account[]
-  session            session[]
   productionProfiles productionProfiles[]
+  session            session[]
 
   @@index([id])
-}
-
-enum roles {
-  ARTIST
-  PROD_OWNER
 }
 
 model prev_projects {
@@ -74,32 +70,23 @@ model prev_projects {
 }
 
 model productionProfiles {
-  id                  String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  id                  String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   title               String
   address             String
   no_of_shooting_days Int
-  created_at          DateTime        @default(dbgenerated("now()"))
-  updated_at          DateTime        @updatedAt
+  created_at          DateTime @default(now())
+  updated_at          DateTime @default(now())
   release_date        DateTime
   payment_provided    Boolean
   restrictions        String
   poster              String
   budget              Int
-  duration            Int
-  gener_on_prod       gener_on_prod[]
-  artists             user?           @relation(fields: [artistsId], references: [id])
-  artistsId           String?         @db.Uuid
+  artistsId           String?  @db.Uuid
+  gener_on_prod       String[]
+  artists             user?    @relation(fields: [artistsId], references: [id])
 }
 
-model gener_on_prod {
-  id                String             @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  prod_id           String             @db.Uuid
-  genere            String
-  productionProfile productionProfiles @relation(fields: [prod_id], references: [id])
-  genere_category   genere_category    @relation(fields: [genere], references: [genere_type])
-}
-
-model genere_category {
-  genere_type   String          @id
-  gener_on_prod gener_on_prod[]
+enum roles {
+  ARTIST
+  PROD_OWNER
 }

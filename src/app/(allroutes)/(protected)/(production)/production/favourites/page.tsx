@@ -21,7 +21,7 @@ export default function FavouritesPage() {
   return (
     <div className="w-full h-fit flex flex-col">
       {likedIds.map((id) => {
-        return <FeedCard viewProfile className="rounded-none" feed={artistProfile[id]!} />;
+        return <FeedCard key={id} viewProfile className="rounded-none" feed={artistProfile[id]!} />;
       })}
     </div>
   );
